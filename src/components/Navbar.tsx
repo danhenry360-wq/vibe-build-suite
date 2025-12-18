@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
+  { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Tools", href: "/tools" },
   { name: "Portfolio", href: "/portfolio" },
@@ -31,9 +32,8 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-strong py-3" : "py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass-strong py-3" : "py-5"
+        }`}
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
@@ -50,11 +50,10 @@ export function Navbar() {
             <li key={link.name}>
               <Link
                 to={link.href}
-                className={`text-sm font-medium transition-colors link-underline ${
-                  location.pathname === link.href
+                className={`text-sm font-medium transition-colors link-underline ${location.pathname === link.href
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
-                }`}
+                  }`}
               >
                 {link.name}
               </Link>
@@ -87,11 +86,10 @@ export function Navbar() {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className={`block py-2 text-lg font-medium transition-colors ${
-                      location.pathname === link.href
+                    className={`block py-2 text-lg font-medium transition-colors ${location.pathname === link.href
                         ? "text-primary"
                         : "text-muted-foreground hover:text-foreground"
-                    }`}
+                      }`}
                   >
                     {link.name}
                   </Link>
