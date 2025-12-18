@@ -1,13 +1,14 @@
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import {
-  siAnthropic, siOpenai, siGoogle, siMeta,
-  siGithub, siVisualstudiocode, siStackblitz, siVercel, siReplit,
+  siAnthropic, siGoogle, siMeta,
+  siGithub, siStackblitz, siVercel, siReplit,
   siN8n, siMake, siZapier, siFigma, siNetlify, siSupabase, siRailway,
 } from "simple-icons/icons";
 import {
   Laptop, Heart, Puzzle, Palette, Image as ImageIcon, Sparkles, Terminal,
-  Bot, Building2, MousePointer2
+
+  Bot, Building2, MousePointer2, FileCode,
 } from "lucide-react";
 
 // Helper to render Simple Icons
@@ -29,7 +30,7 @@ const toolCategories = [
     icon: "🤖",
     tools: [
       { name: "Claude", company: "Anthropic", description: "Advanced reasoning & coding", icon: siAnthropic },
-      { name: "ChatGPT / GPT-4", company: "OpenAI", description: "Versatile AI assistant", icon: siOpenai },
+      { name: "ChatGPT / GPT-4", company: "OpenAI", description: "Versatile AI assistant", icon: Bot, isLucide: true },
       { name: "Gemini", company: "Google", description: "Multimodal capabilities", icon: siGoogle },
       { name: "Llama", company: "Meta", description: "Open-source models", icon: siMeta },
     ],
@@ -40,7 +41,7 @@ const toolCategories = [
     tools: [
       { name: "Cursor", company: "Cursor", description: "AI-first code editor", icon: MousePointer2, isLucide: true },
       { name: "GitHub Copilot", company: "GitHub", description: "AI pair programmer", icon: siGithub },
-      { name: "VS Code", company: "Microsoft", description: "Code editor with extensions", icon: siVisualstudiocode },
+      { name: "VS Code", company: "Microsoft", description: "Code editor with extensions", icon: FileCode, isLucide: true },
       { name: "Windsurf", company: "Codeium", description: "AI coding assistant", icon: Terminal, isLucide: true },
     ],
   },
@@ -69,7 +70,7 @@ const toolCategories = [
     icon: "🎨",
     tools: [
       { name: "Midjourney", company: "Midjourney", description: "AI image generation", icon: Palette, isLucide: true },
-      { name: "DALL·E", company: "OpenAI", description: "AI image creation", icon: siOpenai },
+      { name: "DALL·E", company: "OpenAI", description: "AI image creation", icon: ImageIcon, isLucide: true },
       { name: "Figma", company: "Figma", description: "Design & prototyping", icon: siFigma },
       { name: "Stable Diffusion", company: "Stability AI", description: "Open-source image AI", icon: Sparkles, isLucide: true },
     ],
