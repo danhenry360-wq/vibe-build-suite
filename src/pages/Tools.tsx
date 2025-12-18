@@ -1,5 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Reveal } from "@/components/Reveal";
 import {
   siAnthropic, siGoogle, siMeta,
   siGithub, siStackblitz, siVercel, siReplit,
@@ -108,19 +109,21 @@ export default function Tools() {
       {/* Header */}
       <section className="section-padding">
         <div className="container-custom">
-          <SectionHeader
-            label="Our Tech Stack"
-            title="Powered by the Best AI Tools"
-            description="We master the entire AI ecosystem to deliver exceptional results. Here's what's in our toolkit."
-          />
+          <Reveal>
+            <SectionHeader
+              label="Our Tech Stack"
+              title="Powered by the Best AI Tools"
+              description="We master the entire AI ecosystem to deliver exceptional results. Here's what's in our toolkit."
+            />
+          </Reveal>
         </div>
       </section>
 
       {/* Tool Categories */}
       <section className="pb-16 md:pb-24">
         <div className="container-custom space-y-12">
-          {toolCategories.map((category) => (
-            <div key={category.title}>
+          {toolCategories.map((category, index) => (
+            <Reveal key={category.title} delay={index * 0.1}>
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-3xl">{category.icon}</span>
                 <h2 className="text-xl font-bold text-foreground">{category.title}</h2>
@@ -145,7 +148,7 @@ export default function Tools() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -160,11 +163,13 @@ export default function Tools() {
           />
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
-            {whyMultiple.map((item) => (
-              <div key={item.title} className="glass rounded-2xl p-8 text-center">
-                <h3 className="text-lg font-bold text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </div>
+            {whyMultiple.map((item, index) => (
+              <Reveal key={item.title} delay={index * 0.1}>
+                <div className="glass rounded-2xl p-8 text-center h-full">
+                  <h3 className="text-lg font-bold text-foreground mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
