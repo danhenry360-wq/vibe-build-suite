@@ -1,65 +1,87 @@
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
+import {
+  siAnthropic, siOpenai, siGoogle, siMeta,
+  siGithub, siVisualstudiocode, siStackblitz, siVercel, siReplit,
+  siN8n, siMake, siZapier, siFigma, siNetlify, siSupabase, siRailway,
+} from "simple-icons/icons";
+import {
+  Laptop, Heart, Puzzle, Palette, Image as ImageIcon, Sparkles, Terminal,
+  Bot, Building2, MousePointer2
+} from "lucide-react";
+
+// Helper to render Simple Icons
+const SimpleIcon = ({ icon, color }: { icon: any, color?: string }) => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    className="w-6 h-6 fill-current"
+    style={{ color: color || 'currentColor' }}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d={icon.path} />
+  </svg>
+);
 
 const toolCategories = [
   {
     title: "AI Assistants & Models",
     icon: "🤖",
     tools: [
-      { name: "Claude", company: "Anthropic", description: "Advanced reasoning & coding" },
-      { name: "ChatGPT / GPT-4", company: "OpenAI", description: "Versatile AI assistant" },
-      { name: "Gemini", company: "Google", description: "Multimodal capabilities" },
-      { name: "Llama", company: "Meta", description: "Open-source models" },
+      { name: "Claude", company: "Anthropic", description: "Advanced reasoning & coding", icon: siAnthropic },
+      { name: "ChatGPT / GPT-4", company: "OpenAI", description: "Versatile AI assistant", icon: siOpenai },
+      { name: "Gemini", company: "Google", description: "Multimodal capabilities", icon: siGoogle },
+      { name: "Llama", company: "Meta", description: "Open-source models", icon: siMeta },
     ],
   },
   {
     title: "AI Development Environments",
     icon: "💻",
     tools: [
-      { name: "Cursor", company: "Cursor", description: "AI-first code editor" },
-      { name: "GitHub Copilot", company: "GitHub", description: "AI pair programmer" },
-      { name: "VS Code", company: "Microsoft", description: "Code editor with extensions" },
-      { name: "Windsurf", company: "Codeium", description: "AI coding assistant" },
+      { name: "Cursor", company: "Cursor", description: "AI-first code editor", icon: MousePointer2, isLucide: true },
+      { name: "GitHub Copilot", company: "GitHub", description: "AI pair programmer", icon: siGithub },
+      { name: "VS Code", company: "Microsoft", description: "Code editor with extensions", icon: siVisualstudiocode },
+      { name: "Windsurf", company: "Codeium", description: "AI coding assistant", icon: Terminal, isLucide: true },
     ],
   },
   {
     title: "AI Website Builders",
     icon: "🏗️",
     tools: [
-      { name: "Lovable", company: "Lovable", description: "AI app builder" },
-      { name: "Bolt.new", company: "StackBlitz", description: "Rapid AI development" },
-      { name: "v0", company: "Vercel", description: "AI UI generation" },
-      { name: "Replit", company: "Replit", description: "AI-powered IDE" },
+      { name: "Lovable", company: "Lovable", description: "AI app builder", icon: Heart, isLucide: true },
+      { name: "Bolt.new", company: "StackBlitz", description: "Rapid AI development", icon: siStackblitz },
+      { name: "v0", company: "Vercel", description: "AI UI generation", icon: siVercel },
+      { name: "Replit", company: "Replit", description: "AI-powered IDE", icon: siReplit },
     ],
   },
   {
     title: "Automation Platforms",
     icon: "⚙️",
     tools: [
-      { name: "n8n", company: "n8n", description: "Self-hosted automation" },
-      { name: "Make", company: "Make", description: "Visual automation" },
-      { name: "Zapier", company: "Zapier", description: "App integrations" },
-      { name: "Activepieces", company: "Activepieces", description: "Open-source option" },
+      { name: "n8n", company: "n8n", description: "Self-hosted automation", icon: siN8n },
+      { name: "Make", company: "Make", description: "Visual automation", icon: siMake },
+      { name: "Zapier", company: "Zapier", description: "App integrations", icon: siZapier },
+      { name: "Activepieces", company: "Activepieces", description: "Open-source option", icon: Puzzle, isLucide: true },
     ],
   },
   {
     title: "AI Image & Design",
     icon: "🎨",
     tools: [
-      { name: "Midjourney", company: "Midjourney", description: "AI image generation" },
-      { name: "DALL·E", company: "OpenAI", description: "AI image creation" },
-      { name: "Figma", company: "Figma", description: "Design & prototyping" },
-      { name: "Stable Diffusion", company: "Stability AI", description: "Open-source image AI" },
+      { name: "Midjourney", company: "Midjourney", description: "AI image generation", icon: Palette, isLucide: true },
+      { name: "DALL·E", company: "OpenAI", description: "AI image creation", icon: siOpenai },
+      { name: "Figma", company: "Figma", description: "Design & prototyping", icon: siFigma },
+      { name: "Stable Diffusion", company: "Stability AI", description: "Open-source image AI", icon: Sparkles, isLucide: true },
     ],
   },
   {
     title: "Deployment & Infrastructure",
     icon: "🚀",
     tools: [
-      { name: "Vercel", company: "Vercel", description: "Frontend deployment" },
-      { name: "Netlify", company: "Netlify", description: "Web hosting & CI/CD" },
-      { name: "Supabase", company: "Supabase", description: "Backend as a service" },
-      { name: "Railway", company: "Railway", description: "App deployment" },
+      { name: "Vercel", company: "Vercel", description: "Frontend deployment", icon: siVercel },
+      { name: "Netlify", company: "Netlify", description: "Web hosting & CI/CD", icon: siNetlify },
+      { name: "Supabase", company: "Supabase", description: "Backend as a service", icon: siSupabase },
+      { name: "Railway", company: "Railway", description: "App deployment", icon: siRailway },
     ],
   },
 ];
@@ -106,10 +128,15 @@ export default function Tools() {
                 {category.tools.map((tool) => (
                   <div
                     key={tool.name}
-                    className="glass rounded-xl p-5 card-hover"
+                    className="glass rounded-xl p-5 card-hover group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-4 text-xl font-bold text-primary-foreground">
-                      {tool.name.charAt(0)}
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                      {tool.isLucide ? (
+                        // @ts-ignore
+                        <tool.icon className="w-6 h-6 text-foreground" />
+                      ) : (
+                        <SimpleIcon icon={tool.icon} color="" />
+                      )}
                     </div>
                     <h3 className="font-bold text-foreground mb-1">{tool.name}</h3>
                     <p className="text-xs text-primary mb-2">{tool.company}</p>
@@ -130,7 +157,7 @@ export default function Tools() {
             title="Why Multiple Tools?"
             description="We don't believe in one-size-fits-all. Here's why our multi-tool approach delivers better results."
           />
-          
+
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             {whyMultiple.map((item) => (
               <div key={item.title} className="glass rounded-2xl p-8 text-center">

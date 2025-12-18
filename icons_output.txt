@@ -1,0 +1,23 @@
+Checking available icons...
+[FOUND] Anthropic: siAnthropic
+[FOUND-MATCH] OpenAI: siOpenaigym
+[FOUND] Google: siGoogle
+[FOUND] Meta: siMeta
+[FOUND] Cursor: siCursor
+[FOUND] GitHub: siGithub
+[MISSING] Microsoft
+[MISSING] Codeium
+[MISSING] Lovable
+[FOUND] StackBlitz: siStackblitz
+[FOUND] Vercel: siVercel
+[FOUND] Replit: siReplit
+[FOUND] n8n: siN8n
+[FOUND] Make: siMake
+[FOUND] Zapier: siZapier
+[MISSING] Activepieces
+[MISSING] Midjourney
+[FOUND] Figma: siFigma
+[MISSING] Stability AI
+[FOUND] Netlify: siNetlify
+[FOUND] Supabase: siSupabase
+[FOUND] Railway: siRailway
