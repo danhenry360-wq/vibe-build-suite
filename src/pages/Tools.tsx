@@ -8,9 +8,9 @@ import {
 } from "simple-icons/icons";
 import {
   Laptop, Heart, Puzzle, Palette, Image as ImageIcon, Sparkles, Terminal,
-
   Bot, Building2, MousePointer2, FileCode,
 } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Helper to render Simple Icons
 const SimpleIcon = ({ icon, color }: { icon: any, color?: string }) => (
@@ -121,35 +121,85 @@ export default function Tools() {
 
       {/* Tool Categories */}
       <section className="pb-16 md:pb-24">
-        <div className="container-custom space-y-12">
-          {toolCategories.map((category, index) => (
-            <Reveal key={category.title} delay={index * 0.1}>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-3xl">{category.icon}</span>
-                <h2 className="text-xl font-bold text-foreground">{category.title}</h2>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {category.tools.map((tool) => (
-                  <div
-                    key={tool.name}
-                    className="glass rounded-xl p-5 card-hover group"
+        <div className="container-custom">
+          <Tabs defaultValue="all" className="w-full">
+            <Reveal>
+              <TabsList className="w-full flex h-auto p-1 bg-muted/50 rounded-xl overflow-x-auto no-scrollbar justify-start md:justify-center mb-8">
+                <TabsTrigger value="all" className="rounded-lg px-4 py-2">
+                  All Tools
+                </TabsTrigger>
+                {toolCategories.map((category) => (
+                  <TabsTrigger
+                    key={category.title}
+                    value={category.title}
+                    className="rounded-lg px-4 py-2 whitespace-nowrap"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
-                      {tool.isLucide ? (
-                        // @ts-ignore
-                        <tool.icon className="w-6 h-6 text-foreground" />
-                      ) : (
-                        <SimpleIcon icon={tool.icon} color="" />
-                      )}
-                    </div>
-                    <h3 className="font-bold text-foreground mb-1">{tool.name}</h3>
-                    <p className="text-xs text-primary mb-2">{tool.company}</p>
-                    <p className="text-sm text-muted-foreground">{tool.description}</p>
-                  </div>
+                    <span className="mr-2">{category.icon}</span>
+                    {category.title}
+                  </TabsTrigger>
                 ))}
-              </div>
+              </TabsList>
             </Reveal>
-          ))}
+
+            <TabsContent value="all" className="space-y-12 animate-in fade-in-50 duration-500">
+              {toolCategories.map((category, index) => (
+                <div key={category.title}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="text-3xl">{category.icon}</span>
+                    <h2 className="text-xl font-bold text-foreground">{category.title}</h2>
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {category.tools.map((tool) => (
+                      <div
+                        key={tool.name}
+                        className="glass rounded-xl p-5 card-hover group"
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                          {tool.isLucide ? (
+                            // @ts-ignore
+                            <tool.icon className="w-6 h-6 text-foreground" />
+                          ) : (
+                            <SimpleIcon icon={tool.icon} color="" />
+                          )}
+                        </div>
+                        <h3 className="font-bold text-foreground mb-1">{tool.name}</h3>
+                        <p className="text-xs text-primary mb-2">{tool.company}</p>
+                        <p className="text-sm text-muted-foreground">{tool.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </TabsContent>
+
+            {toolCategories.map((category) => (
+              <TabsContent
+                key={category.title}
+                value={category.title}
+                className="animate-in fade-in-50 duration-500"
+              >
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {category.tools.map((tool) => (
+                    <Reveal key={tool.name}>
+                      <div className="glass rounded-xl p-5 card-hover group">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                          {tool.isLucide ? (
+                            // @ts-ignore
+                            <tool.icon className="w-6 h-6 text-foreground" />
+                          ) : (
+                            <SimpleIcon icon={tool.icon} color="" />
+                          )}
+                        </div>
+                        <h3 className="font-bold text-foreground mb-1">{tool.name}</h3>
+                        <p className="text-xs text-primary mb-2">{tool.company}</p>
+                        <p className="text-sm text-muted-foreground">{tool.description}</p>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
         </div>
       </section>
 
