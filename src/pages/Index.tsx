@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, DollarSign, Globe, Cog, Bot, Search } from "lucide-react";
+import { ArrowRight, Zap, DollarSign, Globe, Cog, Bot, Loader2 } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { useSiteStats } from "@/hooks/useSiteStats";
+import { usePortfolioProjects } from "@/hooks/usePortfolioProjects";
 
-const stats = [
+const fallbackStats = [
   { value: "50+", label: "Projects Delivered" },
   { value: "12+", label: "AI Tools Mastered" },
   { value: "24h", label: "Response Time" },
@@ -62,6 +64,12 @@ const codeSnippet = `const project = vibeCode({
 // Ship in days, not months 🚀`;
 
 export default function Index() {
+  const { data: siteStats, isLoading: statsLoading } = useSiteStats();
+  const { data: featuredProjects, isLoading: projectsLoading } = usePortfolioProjects(true);
+
+  const stats = siteStats?.length ? siteStats.map(s => ({ value: s.stat_value, label: s.stat_label })) : fallbackStats;
+  const displayProjects = featuredProjects?.length ? featuredProjects : projects;
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -255,27 +263,43 @@ export default function Index() {
           />
           
           <div className="grid md:grid-cols-3 gap-6 mt-12">
-            {projects.map((project) => (
-              <div
-                key={project.title}
-                className="glass rounded-2xl overflow-hidden card-hover group"
-              >
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-500">
-                  {project.icon}
-                </div>
-                <div className="p-6">
-                  <div className="flex gap-2 mb-3">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground">{project.description}</p>
-                </div>
+            {projectsLoading ? (
+              <div className="col-span-3 flex justify-center py-12">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
               </div>
-            ))}
+            ) : (
+              displayProjects.map((project) => (
+                <div
+                  key={'id' in project ? project.id : project.title}
+                  className="glass rounded-2xl overflow-hidden card-hover group"
+                >
+                  {'image_url' in project && project.image_url ? (
+                    <div className="h-48 overflow-hidden">
+                      <img 
+                        src={project.image_url} 
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-500">
+                      {'icon' in project ? project.icon : '🚀'}
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="flex gap-2 mb-3">
+                      {('tags' in project ? project.tags : []).map((tag) => (
+                        <span key={tag} className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{project.title}</h3>
+                    <p className="text-sm text-muted-foreground">{project.description}</p>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
 
           <div className="text-center mt-10">
