@@ -1,71 +1,74 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Globe, Cog, Search, Bot, CheckCircle2, FileCheck, ClipboardCheck, Settings, Users, Rocket } from "lucide-react";
+import { ArrowRight, Globe, Cog, Search, Bot, CheckCircle2, FileCheck, ClipboardCheck, Settings, Rocket, Zap, Crosshair } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Reveal } from "@/components/Reveal";
+import { Badge } from "@/components/ui/badge";
 
 const services = [
   {
     id: "websites",
     icon: Globe,
-    title: "Custom Web Solutions",
-    description: "Revenue-focused websites and applications engineered for conversion, performance, and scalability. Every element is designed with your business objectives in mind.",
+    title: "High-Velocity Web Architecture",
+    description: "Revenue-focused digital infrastructure engineered for speed, conversion, and global scalability.",
+    impact: "Impact: 50% faster TTI (Time to Interactive) and 2x average conversion lift.",
     features: [
-      "Conversion-Optimized Landing Pages",
-      "Scalable E-commerce Platforms",
-      "Enterprise Web Applications & Dashboards",
-      "Progressive Web Apps (PWA)",
-      "API-First Architecture",
+      "Conversion-Optimized Landing Vectors",
+      "Headless CMS Architectures",
+      "Progressive Web Application (PWA) Standards",
+      "API-First Data Systems",
+      "Global CDN Edge Deployment",
     ],
-    cta: "Discuss Your Project",
+    cta: "Initiate Architecture",
     ctaLink: "/contact",
   },
   {
     id: "automation",
     icon: Cog,
-    title: "Process Automation Engineering",
-    description: "Eliminate manual tasks and human error with intelligent automation. Our solutions typically save clients 15-40 hours per week while improving data accuracy to 99%+.",
+    title: "Autonomous Workflow Orchestration",
+    description: "Eliminate operational friction. We replace manual human dependencies with fault-tolerant, self-healing automated systems.",
+    impact: "Impact: Typical 15-40 hr/week overhead reduction per department.",
     features: [
-      "End-to-End Workflow Automation",
-      "CRM & ERP Integration",
+      "End-to-End Logic Automation",
+      "CRM/ERP Bi-Directional Sync",
       "Data Pipeline Engineering",
-      "Custom API Development",
-      "Email & Notification Systems",
-      "Reporting Automation",
+      "Webhook & API Orchestration",
+      "Automated Reporting Intelligence",
     ],
-    cta: "Discuss Your Project",
+    cta: "Automate Operations",
     ctaLink: "/contact",
   },
   {
     id: "audits",
     icon: Search,
-    title: "Technical Audit & Optimization",
-    description: "Comprehensive analysis of your existing systems with actionable recommendations. We identify bottlenecks, security vulnerabilities, and optimization opportunities.",
+    title: "Technical Infrastructure Forensics",
+    description: "Deep-dive analysis of your existing stack. We identify invisible bottlenecks, security risks, and optimization vectors.",
+    impact: "Impact: Identify an average of 12 critical vulnerabilities or performance blockers.",
     features: [
-      "Performance Analysis (Core Web Vitals)",
-      "Technical SEO Assessment",
-      "Security Vulnerability Scan",
-      "Architecture Review",
-      "Accessibility Compliance Check",
-      "Competitive Technical Analysis",
+      "Core Web Vitals Forensics",
+      "Technical SEO Audits",
+      "Security Vulnerability Scanning",
+      "Codebase Health Assessment",
+      "Accessibility Compliance (WCAG)",
     ],
-    cta: "Request Free Audit",
+    cta: "Request Forensic Audit",
     ctaLink: "/audit",
   },
   {
     id: "ai",
     icon: Bot,
-    title: "AI Implementation Services",
-    description: "Deploy production-ready AI systems that enhance customer experience and operational efficiency. We specialize in practical AI applications with measurable ROI.",
+    title: "Applied Intelligence Systems",
+    description: "Move beyond the hype. Deploy specialized AI agents that function as 24/7 autonomous specialized employees.",
+    impact: "Impact: 24/7 Customer Coverage and instant data synthesis at scale.",
     features: [
-      "Intelligent Customer Assistants",
-      "Automated Content Generation",
-      "Document Processing & Analysis",
-      "Custom RAG Systems (Q&A from your data)",
-      "Predictive Analytics Integration",
-      "AI-Powered Decision Support",
+      "Autonomous Customer Agents",
+      "RAG (Retrieval-Augmented Generation) Systems",
+      "Predictive Analytics Engines",
+      "Automated Content Foundries",
+      "Voice & Vision Integration",
     ],
-    cta: "Discuss Your Project",
+    cta: "Deploy Intelligence",
     ctaLink: "/contact",
   },
 ];
@@ -73,33 +76,33 @@ const services = [
 const process = [
   {
     step: "01",
-    title: "Discovery & Analysis",
+    title: "Systems Reconnaissance",
     icon: Search,
-    description: "We conduct a thorough assessment of your current systems, business objectives, and technical requirements. This phase includes stakeholder interviews and documentation review.",
+    description: "We conduct a forensic assessment of your current infrastructure, objectives, and market positioning. Zero assumptions.",
   },
   {
     step: "02",
-    title: "Solution Architecture",
-    icon: FileCheck,
-    description: "Our engineers design a comprehensive solution with detailed specifications, technology stack recommendations, and a clear implementation roadmap with milestones.",
+    title: "Strategic Blueprinting",
+    icon: Crosshair,
+    description: "Our engineers architect a comprehensive battle plan detailing technology stack, data flow, and exact milestones.",
   },
   {
     step: "03",
-    title: "Agile Development",
-    icon: Settings,
-    description: "We build in iterative sprints with regular progress updates. Each deliverable is tested rigorously before integration. You have visibility at every stage.",
+    title: "Agile Execution",
+    icon: Zap,
+    description: "Rapid iteration cycles with functional deliverables at every sprint. Visual progress, not just promises.",
   },
   {
     step: "04",
-    title: "Quality Assurance",
+    title: "Military-Grade Validation",
     icon: ClipboardCheck,
-    description: "Comprehensive testing including functionality, performance, security, and user acceptance. We refine until every requirement is met to specification.",
+    description: "Stress testing across security, load, and responsiveness vectors. We break it before your users can.",
   },
   {
     step: "05",
     title: "Deployment & Handover",
     icon: Rocket,
-    description: "Production deployment with zero-downtime strategies. Complete documentation, source code transfer, and training sessions for your team.",
+    description: "Zero-downtime launch sequence. We transfer full source code ownership and train your team for autonomy.",
   },
 ];
 
@@ -109,11 +112,13 @@ export default function Services() {
       {/* Header */}
       <section className="section-padding">
         <div className="container-custom">
-          <SectionHeader
-            label="Our Expertise"
-            title="Engineering Excellence, Delivered"
-            description="We combine deep technical expertise with AI-accelerated development to deliver enterprise-grade solutions at unprecedented speed."
-          />
+          <Reveal>
+            <SectionHeader
+              label="Our Expertise"
+              title="Engineering Excellence, Delivered"
+              description="We combine deep technical expertise with AI-accelerated development to deliver enterprise-grade solutions at unprecedented speed."
+            />
+          </Reveal>
         </div>
       </section>
 
@@ -121,47 +126,57 @@ export default function Services() {
       <section className="pb-16 md:pb-24">
         <div className="container-custom space-y-24">
           {services.map((service, index) => (
-            <div
-              key={service.id}
-              className={`grid lg:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? "lg:flex-row-reverse" : ""
-              }`}
-            >
-              <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mb-6">
-                  <service.icon className="w-8 h-8 text-primary-foreground" />
+            <Reveal key={service.id} delay={index * 0.1}>
+              <div
+                className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  }`}
+              >
+                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mb-6">
+                    <service.icon className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                    {service.title}
+                  </h2>
+                  <p className="text-muted-foreground mb-4">
+                    {service.description}
+                  </p>
+
+                  {/* Business Impact Badge */}
+                  <div className="mb-6">
+                    <Badge variant="outline" className="bg-primary/5 border-primary/20 text-primary px-3 py-1 text-sm font-medium">
+                      <TrendingUp className="w-3 h-3 mr-2 inline" />
+                      {service.impact}
+                    </Badge>
+                  </div>
+
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3 text-foreground">
+                        <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button asChild className="bg-gradient-primary text-primary-foreground hover:opacity-90">
+                    <Link to={service.ctaLink}>
+                      {service.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  {service.title}
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  {service.description}
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3 text-foreground">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button asChild className="bg-gradient-primary text-primary-foreground hover:opacity-90">
-                  <Link to={service.ctaLink}>
-                    {service.cta} <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-              <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                <div className="glass rounded-3xl p-12 flex items-center justify-center min-h-[300px]">
-                  <div className="text-8xl">
-                    {service.id === "websites" && "🌐"}
-                    {service.id === "automation" && "⚙️"}
-                    {service.id === "audits" && "🔍"}
-                    {service.id === "ai" && "🤖"}
+                <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <div className="glass rounded-3xl p-12 flex items-center justify-center min-h-[300px] border border-white/5 relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="text-8xl transform group-hover:scale-110 transition-transform duration-500">
+                      {service.id === "websites" && "🌐"}
+                      {service.id === "automation" && "⚙️"}
+                      {service.id === "audits" && "🔍"}
+                      {service.id === "ai" && "🤖"}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -170,28 +185,32 @@ export default function Services() {
       <section className="section-padding bg-card/30">
         <div className="container-custom">
           <SectionHeader
-            label="Our Methodology"
-            title="A Rigorous Engineering Process"
-            description="Every project follows our proven five-phase methodology, ensuring predictable outcomes and transparent communication."
+            label="Methodology"
+            title="The Engineering Protocol"
+            description="Our proven five-phase engagement model ensures predictability and transparency."
           />
-          
+
           <div className="grid md:grid-cols-5 gap-6 mt-12">
             {process.map((step, index) => (
-              <div key={step.step} className="relative">
-                <div className="glass rounded-2xl p-6 h-full">
+              <Reveal key={step.step} delay={index * 0.1} className="relative">
+                <div className="glass rounded-2xl p-6 h-full border border-white/5 hover:border-primary/20 transition-colors">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl font-bold text-gradient">{step.step}</span>
-                    <step.icon className="w-5 h-5 text-primary" />
+                    <span className="text-3xl font-black text-foreground/20">{step.step}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
+
+                  <div className="mb-4">
+                    <step.icon className="w-8 h-8 text-primary" />
+                  </div>
+
+                  <h3 className="text-sm font-bold text-foreground mb-2 uppercase tracking-wide">{step.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
                 {index < process.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-primary">
+                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-primary/20">
                     <ArrowRight className="w-6 h-6" />
                   </div>
                 )}
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -200,24 +219,46 @@ export default function Services() {
       {/* CTA */}
       <section className="section-padding">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Discuss Your Project?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Schedule a consultation to explore how we can solve your specific challenges with a tailored solution.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
-              <Link to="/contact">
-                Schedule Consultation <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/pricing">View Investment Options</Link>
-            </Button>
-          </div>
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Ready to Upgrade Your Infrastructure?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Schedule a high-level consultation to explore how our engineering capabilities can accelerate your objectives.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
+                <Link to="/contact">
+                  Schedule Consultation <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link to="/pricing">View Investment Options</Link>
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
     </Layout>
   );
+}
+
+function TrendingUp(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+      <polyline points="17 6 23 6 23 12" />
+    </svg>
+  )
 }
