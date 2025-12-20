@@ -40,7 +40,7 @@ const toolCategories = [
       {
         name: "GPT-4",
         company: "OpenAI",
-        description: "Versatile across coding, analysis, and creative tasks",
+        description: "Our versatile utility for high-speed prototyping and diverse task execution.",
         insight: "Best for: Rapid prototyping, API integrations, and data analysis. Exceptional speed for iterative development.",
         icon: Bot,
         isLucide: true
@@ -48,14 +48,14 @@ const toolCategories = [
       {
         name: "Gemini",
         company: "Google",
-        description: "Strong multimodal capabilities with deep integration",
+        description: "Selected for deep Google ecosystem integration and massive context capabilities.",
         insight: "Best for: Projects requiring visual understanding and Google ecosystem integration.",
         icon: siGoogle
       },
       {
         name: "Llama",
         company: "Meta",
-        description: "Open-source foundation for custom deployments",
+        description: "The open-source core for privacy-first, custom-deployed intelligence.",
         insight: "Best for: Self-hosted solutions requiring data privacy and custom fine-tuning.",
         icon: siMeta
       },
@@ -68,7 +68,7 @@ const toolCategories = [
       {
         name: "Cursor",
         company: "Cursor",
-        description: "AI-native code editor with codebase awareness",
+        description: "Our primary AI-native interface for deep codebase awareness and rapid development.",
         insight: "Best for: Complex projects requiring full codebase context. Our primary development environment.",
         icon: MousePointer2,
         isLucide: true
@@ -76,14 +76,14 @@ const toolCategories = [
       {
         name: "GitHub Copilot",
         company: "GitHub",
-        description: "Inline AI assistance integrated with version control",
+        description: "Integrated for seamless boilerplate reduction within the version control lifecycle.",
         insight: "Best for: Teams already invested in GitHub ecosystem. Excellent for boilerplate generation.",
         icon: siGithub
       },
       {
         name: "VS Code",
         company: "Microsoft",
-        description: "Industry-standard editor with extensive extension support",
+        description: "The industry-standard foundation for our highly customized, extension-rich workflows.",
         insight: "Best for: Flexibility and customization. Foundation for many AI-enhanced workflows.",
         icon: FileCode,
         isLucide: true
@@ -91,7 +91,7 @@ const toolCategories = [
       {
         name: "Windsurf",
         company: "Codeium",
-        description: "Free AI coding assistant with enterprise features",
+        description: "Chosen for high-fidelity code autocomplete and enterprise-ready collaborative features.",
         insight: "Best for: Cost-conscious projects requiring autocomplete and chat capabilities.",
         icon: Terminal,
         isLucide: true
@@ -105,7 +105,7 @@ const toolCategories = [
       {
         name: "Lovable",
         company: "Lovable",
-        description: "Full-stack app generation from natural language",
+        description: "Our engine for transforming complex logic into production-ready full-stack architectures.",
         insight: "Best for: MVPs and prototypes requiring quick iteration. Excellent React/Supabase integration.",
         icon: Heart,
         isLucide: true
@@ -113,21 +113,21 @@ const toolCategories = [
       {
         name: "Bolt.new",
         company: "StackBlitz",
-        description: "Browser-based full-stack development",
+        description: "Utilized for instant, browser-based sandbox environments and direct deployments.",
         insight: "Best for: Quick deployments without local environment setup. WebContainer technology.",
         icon: siStackblitz
       },
       {
         name: "v0",
         company: "Vercel",
-        description: "AI-powered UI component generation",
+        description: "Selected for high-speed UI generation utilizing industry-standard component libraries.",
         insight: "Best for: Rapid UI prototyping with shadcn/ui components. Seamless Vercel deployment.",
         icon: siVercel
       },
       {
         name: "Replit",
         company: "Replit",
-        description: "Collaborative cloud development with AI assistance",
+        description: "Our platform of choice for collaborative experimentation and cloud-based deployments.",
         insight: "Best for: Team collaboration and educational projects. Multi-language support.",
         icon: siReplit
       },
@@ -147,21 +147,21 @@ const toolCategories = [
       {
         name: "Make",
         company: "Make",
-        description: "Visual automation with complex logic handling",
+        description: "Ideal for complex multi-step visual logic and advanced error handling orchestration.",
         insight: "Best for: Complex multi-step workflows with branching logic. Superior visual debugging.",
         icon: siMake
       },
       {
         name: "Zapier",
         company: "Zapier",
-        description: "Largest integration library for quick connections",
+        description: "Our bridge for connecting 6,000+ disparate services with minimal latency.",
         insight: "Best for: Simple integrations requiring minimal setup. 6,000+ app connections.",
         icon: siZapier
       },
       {
         name: "Activepieces",
         company: "Activepieces",
-        description: "Open-source automation alternative",
+        description: "The open-source alternative for scalable, self-hosted automation workflows.",
         insight: "Best for: Budget-conscious implementations requiring self-hosting flexibility.",
         icon: Puzzle,
         isLucide: true
@@ -175,7 +175,7 @@ const toolCategories = [
       {
         name: "Midjourney",
         company: "Midjourney",
-        description: "Premium AI image generation for creative assets",
+        description: "Our premium asset for high-concept, photorealistic AI-generated creative imagery.",
         insight: "Best for: Marketing visuals and brand imagery. Highest quality aesthetic output.",
         icon: Palette,
         isLucide: true
@@ -183,7 +183,7 @@ const toolCategories = [
       {
         name: "DALL-E 3",
         company: "OpenAI",
-        description: "Precise prompt adherence for specific requirements",
+        description: "Chosen for precise prompt adherence and technical diagram generation.",
         insight: "Best for: Technical illustrations and precise visual specifications.",
         icon: ImageIcon,
         isLucide: true
@@ -191,14 +191,14 @@ const toolCategories = [
       {
         name: "Figma",
         company: "Figma",
-        description: "Collaborative design and prototyping platform",
+        description: "The central hub for our design-to-code synchronization and component systems.",
         insight: "Best for: Design handoff and component systems. Industry standard for web design.",
         icon: siFigma
       },
       {
         name: "Stable Diffusion",
         company: "Stability AI",
-        description: "Open-source image generation for custom pipelines",
+        description: "Utilized for custom fine-tuned image pipelines and private creative workflows.",
         insight: "Best for: Self-hosted image generation with custom models and fine-tuning.",
         icon: Sparkles,
         isLucide: true
@@ -212,14 +212,14 @@ const toolCategories = [
       {
         name: "Vercel",
         company: "Vercel",
-        description: "Frontend cloud with edge functions",
+        description: "Our standard for global edge performance and seamless frontend delivery.",
         insight: "Best for: React/Next.js deployments requiring global edge performance. Excellent DX.",
         icon: siVercel
       },
       {
         name: "Netlify",
         company: "Netlify",
-        description: "Jamstack deployment with integrated CI/CD",
+        description: "Selected for robust Jamstack architectures and integrated continuous delivery.",
         insight: "Best for: Static sites and serverless functions. Generous free tier.",
         icon: siNetlify
       },
@@ -233,7 +233,7 @@ const toolCategories = [
       {
         name: "Railway",
         company: "Railway",
-        description: "Simplified infrastructure for any stack",
+        description: "Our solution for simplified backend infrastructure and Docker-orchestrated services.",
         insight: "Best for: Backend services, databases, and custom Docker deployments.",
         icon: siRailway
       },
