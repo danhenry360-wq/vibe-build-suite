@@ -12,7 +12,8 @@ export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const { signIn, isAdmin, user } = useAuth();
+  const [isSignUp, setIsSignUp] = useState(false);
+  const { signIn, signUp, isAdmin, user } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -25,6 +26,26 @@ export default function AdminLogin() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
+    if (isSignUp) {
+      const { error } = await signUp(email, password);
+      if (error) {
+        toast({
+          title: "Sign up failed",
+          description: error.message,
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
+      }
+      toast({
+        title: "Account created!",
+        description: "Please contact the site owner to get admin access.",
+      });
+      setIsSignUp(false);
+      setIsLoading(false);
+      return;
+    }
 
     const { error } = await signIn(email, password);
 
@@ -50,8 +71,12 @@ export default function AdminLogin() {
         <div className="container-custom max-w-md">
           <div className="glass rounded-2xl p-8">
             <div className="text-center mb-8">
-              <h1 className="text-2xl font-bold text-foreground mb-2">Admin Login</h1>
-              <p className="text-muted-foreground">Sign in to manage your portfolio</p>
+              <h1 className="text-2xl font-bold text-foreground mb-2">
+                {isSignUp ? "Create Account" : "Admin Login"}
+              </h1>
+              <p className="text-muted-foreground">
+                {isSignUp ? "Sign up to request admin access" : "Sign in to manage your portfolio"}
+              </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -77,6 +102,7 @@ export default function AdminLogin() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
+                  minLength={6}
                   className="bg-background/50"
                 />
               </div>
@@ -89,13 +115,23 @@ export default function AdminLogin() {
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Signing in...
+                    {isSignUp ? "Creating account..." : "Signing in..."}
                   </>
                 ) : (
-                  "Sign In"
+                  isSignUp ? "Sign Up" : "Sign In"
                 )}
               </Button>
             </form>
+
+            <div className="mt-6 text-center">
+              <button
+                type="button"
+                onClick={() => setIsSignUp(!isSignUp)}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {isSignUp ? "Already have an account? Sign in" : "Need an account? Sign up"}
+              </button>
+            </div>
           </div>
         </div>
       </section>
