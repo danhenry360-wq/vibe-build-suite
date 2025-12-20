@@ -8,7 +8,7 @@ import {
 } from "simple-icons/icons";
 import {
   Laptop, Heart, Puzzle, Palette, Image as ImageIcon, Sparkles, Terminal,
-  Bot, Building2, MousePointer2, FileCode,
+  Bot, Building2, MousePointer2, FileCode, Shield, Zap, Server,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -27,79 +27,235 @@ const SimpleIcon = ({ icon, color }: { icon: any, color?: string }) => (
 
 const toolCategories = [
   {
-    title: "AI Assistants & Models",
-    icon: "🤖",
+    title: "AI Models & Reasoning",
+    icon: "🧠",
     tools: [
-      { name: "Claude", company: "Anthropic", description: "Advanced reasoning & coding", icon: siAnthropic },
-      { name: "ChatGPT / GPT-4", company: "OpenAI", description: "Versatile AI assistant", icon: Bot, isLucide: true },
-      { name: "Gemini", company: "Google", description: "Multimodal capabilities", icon: siGoogle },
-      { name: "Llama", company: "Meta", description: "Open-source models", icon: siMeta },
+      { 
+        name: "Claude", 
+        company: "Anthropic", 
+        description: "Superior for complex architecture and long-context reasoning",
+        insight: "Best for: System design, code refactoring, and multi-file operations. 200K context window excels at maintaining coherence across large codebases.",
+        icon: siAnthropic 
+      },
+      { 
+        name: "GPT-4", 
+        company: "OpenAI", 
+        description: "Versatile across coding, analysis, and creative tasks",
+        insight: "Best for: Rapid prototyping, API integrations, and data analysis. Exceptional speed for iterative development.",
+        icon: Bot, 
+        isLucide: true 
+      },
+      { 
+        name: "Gemini", 
+        company: "Google", 
+        description: "Strong multimodal capabilities with deep integration",
+        insight: "Best for: Projects requiring visual understanding and Google ecosystem integration.",
+        icon: siGoogle 
+      },
+      { 
+        name: "Llama", 
+        company: "Meta", 
+        description: "Open-source foundation for custom deployments",
+        insight: "Best for: Self-hosted solutions requiring data privacy and custom fine-tuning.",
+        icon: siMeta 
+      },
     ],
   },
   {
-    title: "AI Development Environments",
+    title: "Development Environments",
     icon: "💻",
     tools: [
-      { name: "Cursor", company: "Cursor", description: "AI-first code editor", icon: MousePointer2, isLucide: true },
-      { name: "GitHub Copilot", company: "GitHub", description: "AI pair programmer", icon: siGithub },
-      { name: "VS Code", company: "Microsoft", description: "Code editor with extensions", icon: FileCode, isLucide: true },
-      { name: "Windsurf", company: "Codeium", description: "AI coding assistant", icon: Terminal, isLucide: true },
+      { 
+        name: "Cursor", 
+        company: "Cursor", 
+        description: "AI-native code editor with codebase awareness",
+        insight: "Best for: Complex projects requiring full codebase context. Our primary development environment.",
+        icon: MousePointer2, 
+        isLucide: true 
+      },
+      { 
+        name: "GitHub Copilot", 
+        company: "GitHub", 
+        description: "Inline AI assistance integrated with version control",
+        insight: "Best for: Teams already invested in GitHub ecosystem. Excellent for boilerplate generation.",
+        icon: siGithub 
+      },
+      { 
+        name: "VS Code", 
+        company: "Microsoft", 
+        description: "Industry-standard editor with extensive extension support",
+        insight: "Best for: Flexibility and customization. Foundation for many AI-enhanced workflows.",
+        icon: FileCode, 
+        isLucide: true 
+      },
+      { 
+        name: "Windsurf", 
+        company: "Codeium", 
+        description: "Free AI coding assistant with enterprise features",
+        insight: "Best for: Cost-conscious projects requiring autocomplete and chat capabilities.",
+        icon: Terminal, 
+        isLucide: true 
+      },
     ],
   },
   {
-    title: "AI Website Builders",
+    title: "Rapid Application Builders",
     icon: "🏗️",
     tools: [
-      { name: "Lovable", company: "Lovable", description: "AI app builder", icon: Heart, isLucide: true },
-      { name: "Bolt.new", company: "StackBlitz", description: "Rapid AI development", icon: siStackblitz },
-      { name: "v0", company: "Vercel", description: "AI UI generation", icon: siVercel },
-      { name: "Replit", company: "Replit", description: "AI-powered IDE", icon: siReplit },
+      { 
+        name: "Lovable", 
+        company: "Lovable", 
+        description: "Full-stack app generation from natural language",
+        insight: "Best for: MVPs and prototypes requiring quick iteration. Excellent React/Supabase integration.",
+        icon: Heart, 
+        isLucide: true 
+      },
+      { 
+        name: "Bolt.new", 
+        company: "StackBlitz", 
+        description: "Browser-based full-stack development",
+        insight: "Best for: Quick deployments without local environment setup. WebContainer technology.",
+        icon: siStackblitz 
+      },
+      { 
+        name: "v0", 
+        company: "Vercel", 
+        description: "AI-powered UI component generation",
+        insight: "Best for: Rapid UI prototyping with shadcn/ui components. Seamless Vercel deployment.",
+        icon: siVercel 
+      },
+      { 
+        name: "Replit", 
+        company: "Replit", 
+        description: "Collaborative cloud development with AI assistance",
+        insight: "Best for: Team collaboration and educational projects. Multi-language support.",
+        icon: siReplit 
+      },
     ],
   },
   {
     title: "Automation Platforms",
     icon: "⚙️",
     tools: [
-      { name: "n8n", company: "n8n", description: "Self-hosted automation", icon: siN8n },
-      { name: "Make", company: "Make", description: "Visual automation", icon: siMake },
-      { name: "Zapier", company: "Zapier", description: "App integrations", icon: siZapier },
-      { name: "Activepieces", company: "Activepieces", description: "Open-source option", icon: Puzzle, isLucide: true },
+      { 
+        name: "n8n", 
+        company: "n8n", 
+        description: "Self-hosted workflow automation with unlimited executions",
+        insight: "Best for: Data-sensitive operations requiring self-hosting. No execution limits. Our preferred platform for enterprise clients.",
+        icon: siN8n 
+      },
+      { 
+        name: "Make", 
+        company: "Make", 
+        description: "Visual automation with complex logic handling",
+        insight: "Best for: Complex multi-step workflows with branching logic. Superior visual debugging.",
+        icon: siMake 
+      },
+      { 
+        name: "Zapier", 
+        company: "Zapier", 
+        description: "Largest integration library for quick connections",
+        insight: "Best for: Simple integrations requiring minimal setup. 6,000+ app connections.",
+        icon: siZapier 
+      },
+      { 
+        name: "Activepieces", 
+        company: "Activepieces", 
+        description: "Open-source automation alternative",
+        insight: "Best for: Budget-conscious implementations requiring self-hosting flexibility.",
+        icon: Puzzle, 
+        isLucide: true 
+      },
     ],
   },
   {
-    title: "AI Image & Design",
+    title: "Visual & Design",
     icon: "🎨",
     tools: [
-      { name: "Midjourney", company: "Midjourney", description: "AI image generation", icon: Palette, isLucide: true },
-      { name: "DALL·E", company: "OpenAI", description: "AI image creation", icon: ImageIcon, isLucide: true },
-      { name: "Figma", company: "Figma", description: "Design & prototyping", icon: siFigma },
-      { name: "Stable Diffusion", company: "Stability AI", description: "Open-source image AI", icon: Sparkles, isLucide: true },
+      { 
+        name: "Midjourney", 
+        company: "Midjourney", 
+        description: "Premium AI image generation for creative assets",
+        insight: "Best for: Marketing visuals and brand imagery. Highest quality aesthetic output.",
+        icon: Palette, 
+        isLucide: true 
+      },
+      { 
+        name: "DALL-E 3", 
+        company: "OpenAI", 
+        description: "Precise prompt adherence for specific requirements",
+        insight: "Best for: Technical illustrations and precise visual specifications.",
+        icon: ImageIcon, 
+        isLucide: true 
+      },
+      { 
+        name: "Figma", 
+        company: "Figma", 
+        description: "Collaborative design and prototyping platform",
+        insight: "Best for: Design handoff and component systems. Industry standard for web design.",
+        icon: siFigma 
+      },
+      { 
+        name: "Stable Diffusion", 
+        company: "Stability AI", 
+        description: "Open-source image generation for custom pipelines",
+        insight: "Best for: Self-hosted image generation with custom models and fine-tuning.",
+        icon: Sparkles, 
+        isLucide: true 
+      },
     ],
   },
   {
-    title: "Deployment & Infrastructure",
+    title: "Infrastructure & Deployment",
     icon: "🚀",
     tools: [
-      { name: "Vercel", company: "Vercel", description: "Frontend deployment", icon: siVercel },
-      { name: "Netlify", company: "Netlify", description: "Web hosting & CI/CD", icon: siNetlify },
-      { name: "Supabase", company: "Supabase", description: "Backend as a service", icon: siSupabase },
-      { name: "Railway", company: "Railway", description: "App deployment", icon: siRailway },
+      { 
+        name: "Vercel", 
+        company: "Vercel", 
+        description: "Frontend cloud with edge functions",
+        insight: "Best for: React/Next.js deployments requiring global edge performance. Excellent DX.",
+        icon: siVercel 
+      },
+      { 
+        name: "Netlify", 
+        company: "Netlify", 
+        description: "Jamstack deployment with integrated CI/CD",
+        insight: "Best for: Static sites and serverless functions. Generous free tier.",
+        icon: siNetlify 
+      },
+      { 
+        name: "Supabase", 
+        company: "Supabase", 
+        description: "Open-source Firebase alternative with PostgreSQL",
+        insight: "Best for: Full-stack apps requiring auth, database, and real-time. Our default backend.",
+        icon: siSupabase 
+      },
+      { 
+        name: "Railway", 
+        company: "Railway", 
+        description: "Simplified infrastructure for any stack",
+        insight: "Best for: Backend services, databases, and custom Docker deployments.",
+        icon: siRailway 
+      },
     ],
   },
 ];
 
 const whyMultiple = [
   {
-    title: "Right Tool, Right Job",
-    description: "Each AI tool excels at specific tasks. We pick the best one for each part of your project.",
+    icon: Zap,
+    title: "Optimal Tool Selection",
+    description: "Each AI tool excels at specific tasks. We select the optimal tool for each phase of your project, maximizing quality and efficiency.",
   },
   {
-    title: "Maximum Speed",
-    description: "By combining specialized tools, we achieve development speeds that single-tool approaches can't match.",
+    icon: Shield,
+    title: "Risk Mitigation",
+    description: "No dependency on a single platform. Your project uses standard technologies and open formats, ensuring long-term maintainability.",
   },
   {
-    title: "No Lock-In",
-    description: "We use standard technologies and open formats. Your project isn't tied to any single platform.",
+    icon: Server,
+    title: "Future-Proof Architecture",
+    description: "We architect solutions that can adapt as AI capabilities evolve, protecting your investment against technological obsolescence.",
   },
 ];
 
@@ -111,9 +267,9 @@ export default function Tools() {
         <div className="container-custom">
           <Reveal>
             <SectionHeader
-              label="Our Tech Stack"
-              title="Powered by the Best AI Tools"
-              description="We master the entire AI ecosystem to deliver exceptional results. Here's what's in our toolkit."
+              label="Our Technology Stack"
+              title="Enterprise-Grade Tools, Expert Implementation"
+              description="We maintain deep expertise across the AI ecosystem to deliver optimal solutions for every use case."
             />
           </Reveal>
         </div>
@@ -142,7 +298,7 @@ export default function Tools() {
             </Reveal>
 
             <TabsContent value="all" className="space-y-12 animate-in fade-in-50 duration-500">
-              {toolCategories.map((category, index) => (
+              {toolCategories.map((category) => (
                 <div key={category.title}>
                   <div className="flex items-center gap-3 mb-6">
                     <span className="text-3xl">{category.icon}</span>
@@ -164,7 +320,10 @@ export default function Tools() {
                         </div>
                         <h3 className="font-bold text-foreground mb-1">{tool.name}</h3>
                         <p className="text-xs text-primary mb-2">{tool.company}</p>
-                        <p className="text-sm text-muted-foreground">{tool.description}</p>
+                        <p className="text-sm text-muted-foreground mb-3">{tool.description}</p>
+                        <div className="pt-3 border-t border-border/50">
+                          <p className="text-xs text-muted-foreground italic">{tool.insight}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -192,7 +351,10 @@ export default function Tools() {
                         </div>
                         <h3 className="font-bold text-foreground mb-1">{tool.name}</h3>
                         <p className="text-xs text-primary mb-2">{tool.company}</p>
-                        <p className="text-sm text-muted-foreground">{tool.description}</p>
+                        <p className="text-sm text-muted-foreground mb-3">{tool.description}</p>
+                        <div className="pt-3 border-t border-border/50">
+                          <p className="text-xs text-muted-foreground italic">{tool.insight}</p>
+                        </div>
                       </div>
                     </Reveal>
                   ))}
@@ -208,14 +370,17 @@ export default function Tools() {
         <div className="container-custom">
           <SectionHeader
             label="Our Approach"
-            title="Why Multiple Tools?"
-            description="We don't believe in one-size-fits-all. Here's why our multi-tool approach delivers better results."
+            title="Strategic Tool Selection"
+            description="We engineer solutions using the optimal combination of tools for your specific requirements."
           />
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             {whyMultiple.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.1}>
-                <div className="glass rounded-2xl p-8 text-center h-full">
+                <div className="glass rounded-2xl p-8 h-full">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <item.icon className="w-6 h-6 text-primary" />
+                  </div>
                   <h3 className="text-lg font-bold text-foreground mb-3">{item.title}</h3>
                   <p className="text-muted-foreground">{item.description}</p>
                 </div>

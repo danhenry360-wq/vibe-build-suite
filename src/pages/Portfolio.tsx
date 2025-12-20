@@ -19,19 +19,19 @@ import { useTestimonials } from "@/hooks/useTestimonials";
 
 const fallbackTestimonials = [
   {
-    quote: "SharkVibe delivered our entire e-commerce platform in just 3 weeks. The quality exceeded our expectations.",
+    quote: "SharkVibe delivered our entire e-commerce platform in just 3 weeks. The quality exceeded our expectations and the ROI was immediate.",
     name: "Sarah Chen",
     title: "Founder, Artisan Collective",
     avatar: "👩‍💼",
   },
   {
-    quote: "The automation workflow they built saves our team 15+ hours every week. Best investment we've made.",
+    quote: "The automation workflow they engineered saves our team 15+ hours every week. Best investment we have made this year.",
     name: "Marcus Johnson",
     title: "Operations Director",
     avatar: "👨‍💻",
   },
   {
-    quote: "Professional, fast, and incredibly talented. They made the entire process seamless from start to finish.",
+    quote: "Professional, systematic, and incredibly effective. They made the entire process transparent and delivered exactly what was specified.",
     name: "Emily Rodriguez",
     title: "Creative Director",
     avatar: "👩‍🎨",
@@ -72,9 +72,9 @@ export default function Portfolio() {
         <div className="container-custom">
           <Reveal>
             <SectionHeader
-              label="Our Work"
-              title="Projects We're Proud Of"
-              description="Real results for real clients. Click on any project to see the full case study."
+              label="Case Studies"
+              title="Proven Results, Documented Success"
+              description="Every project follows our Problem → Solution → Result methodology. Click any case study for details."
             />
           </Reveal>
         </div>
@@ -110,7 +110,7 @@ export default function Portfolio() {
             ) : filteredProjects.length === 0 ? (
               <div className="col-span-3 text-center py-12 text-muted-foreground">
                 <FolderOpen className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>No projects yet. Add some from the admin dashboard!</p>
+                <p>Case studies coming soon. Contact us to discuss your project.</p>
               </div>
             ) : (
               filteredProjects.map((project, index) => (
@@ -136,7 +136,7 @@ export default function Portfolio() {
                           )}
                           <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span className="text-primary-foreground font-bold flex items-center gap-2">
-                              View Details <ArrowRight size={16} />
+                              View Case Study <ArrowRight size={16} />
                             </span>
                           </div>
                         </div>
@@ -157,7 +157,7 @@ export default function Portfolio() {
                             <div className="flex justify-between items-center pt-4 border-t border-border/50">
                               {project.stats_timeline && (
                                 <div className="text-center">
-                                  <p className="text-xs text-muted-foreground">Timeline</p>
+                                  <p className="text-xs text-muted-foreground">Delivered</p>
                                   <p className="font-bold text-primary">{project.stats_timeline}</p>
                                 </div>
                               )}
@@ -212,13 +212,13 @@ export default function Portfolio() {
                         <div className="grid grid-cols-2 gap-4">
                           {project.stats_timeline && (
                             <div className="glass p-4 rounded-xl">
-                              <p className="text-sm text-muted-foreground mb-1">Timeline</p>
+                              <p className="text-sm text-muted-foreground mb-1">Delivery Timeline</p>
                               <p className="text-xl font-bold text-primary">{project.stats_timeline}</p>
                             </div>
                           )}
                           {project.stats_improvement && (
                             <div className="glass p-4 rounded-xl">
-                              <p className="text-sm text-muted-foreground mb-1">Impact</p>
+                              <p className="text-sm text-muted-foreground mb-1">Measurable Impact</p>
                               <p className="text-xl font-bold text-secondary">{project.stats_improvement}</p>
                             </div>
                           )}
@@ -226,7 +226,7 @@ export default function Portfolio() {
                       )}
 
                       <div>
-                        <h4 className="font-semibold text-foreground mb-3">Tags</h4>
+                        <h4 className="font-semibold text-foreground mb-3">Technologies Used</h4>
                         <div className="flex flex-wrap gap-2">
                           {project.tags.map((tag) => (
                             <Badge key={tag} variant="secondary" className="px-3 py-1">
@@ -248,7 +248,7 @@ export default function Portfolio() {
       <section className="section-padding bg-card/30">
         <div className="container-custom">
           <SectionHeader
-            label="Client Love"
+            label="Client Feedback"
             title="What Our Clients Say"
           />
 
@@ -278,14 +278,14 @@ export default function Portfolio() {
         <div className="container-custom text-center">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Want Similar Results?
+              Ready to Achieve Similar Results?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can transform your ideas into reality with AI-powered speed.
+              Schedule a consultation to discuss your specific challenges and explore how we can engineer a solution.
             </p>
             <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
               <Link to="/contact">
-                Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+                Schedule Your Consultation <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </Reveal>
@@ -294,4 +294,3 @@ export default function Portfolio() {
     </Layout>
   );
 }
-

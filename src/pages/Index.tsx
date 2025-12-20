@@ -1,74 +1,52 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, DollarSign, Globe, Cog, Bot, Loader2 } from "lucide-react";
+import { ArrowRight, Zap, DollarSign, Globe, Cog, Bot, Loader2, Shield, Clock } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { useSiteStats } from "@/hooks/useSiteStats";
 import { usePortfolioProjects } from "@/hooks/usePortfolioProjects";
 
 const fallbackStats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "12+", label: "AI Tools Mastered" },
-  { value: "24h", label: "Response Time" },
-  { value: "100%", label: "Client Satisfaction" },
+  { value: "50+", label: "Solutions Delivered" },
+  { value: "2,400+", label: "Hours Saved for Clients" },
+  { value: "$1.2M+", label: "Revenue Generated" },
+  { value: "100%", label: "Project Success Rate" },
 ];
 
 const services = [
   {
     icon: Globe,
-    title: "AI-Powered Websites",
-    description: "Custom websites built with cutting-edge AI tools. No templates, no compromises.",
-    features: ["Landing Pages", "E-commerce", "Web Applications"],
+    title: "Custom Web Solutions",
+    description: "Revenue-focused websites engineered for conversion. Every element is designed to drive measurable business outcomes.",
+    features: ["Conversion-Optimized Landing Pages", "Scalable E-commerce Platforms", "Enterprise Web Applications"],
   },
   {
     icon: Cog,
-    title: "Workflow Automation",
-    description: "Intelligent automations that save you hours every week.",
-    features: ["n8n Workflows", "Make.com", "Custom APIs"],
+    title: "Process Automation",
+    description: "Eliminate manual tasks and human error. Our automation solutions typically save 15-40 hours per week.",
+    features: ["End-to-End Workflow Automation", "CRM & Data Pipeline Integration", "Custom API Development"],
   },
   {
     icon: Bot,
-    title: "AI Integration",
-    description: "Embed intelligent features into your existing systems.",
-    features: ["AI Chatbots", "Content Generation", "RAG Systems"],
+    title: "AI Implementation",
+    description: "Deploy production-ready AI systems that enhance customer experience and operational efficiency.",
+    features: ["Intelligent Customer Assistants", "Automated Content Systems", "Custom RAG Solutions"],
   },
 ];
 
-const projects = [
-  {
-    icon: "🏪",
-    title: "Artisan Marketplace",
-    tags: ["E-commerce", "Automation"],
-    description: "Full-featured marketplace with automated inventory management.",
-  },
-  {
-    icon: "📊",
-    title: "SaaS Dashboard",
-    tags: ["Dashboard", "Analytics"],
-    description: "Real-time analytics dashboard with AI-powered insights.",
-  },
-  {
-    icon: "🚀",
-    title: "Startup Launch",
-    tags: ["Landing Page", "AI Chatbot"],
-    description: "High-converting landing page with integrated AI support.",
-  },
-];
-
-const codeSnippet = `const project = vibeCode({
-  idea: "your vision",
-  tools: ["Claude", "Cursor"],
-  speed: "lightning",
-  quality: "exceptional"
+const codeSnippet = `const solution = SharkVibe.engineer({
+  problem: "your challenge",
+  approach: ["strategic", "systematic"],
+  outcome: "measurable results",
+  ownership: "complete"
 });
-// Ship in days, not months 🚀`;
+// Delivered in weeks, not months`;
 
 export default function Index() {
   const { data: siteStats, isLoading: statsLoading } = useSiteStats();
   const { data: featuredProjects, isLoading: projectsLoading } = usePortfolioProjects(true);
 
   const stats = siteStats?.length ? siteStats.map(s => ({ value: s.stat_value, label: s.stat_label })) : fallbackStats;
-  const displayProjects = featuredProjects?.length ? featuredProjects : projects;
 
   return (
     <Layout>
@@ -80,49 +58,49 @@ export default function Index() {
             <div className="relative z-10">
               <div className="badge-glow mb-6">
                 <span className="pulse-dot" />
-                AI-Powered Development
+                AI Automation Engineering
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                Build Smarter.{" "}
-                <span className="text-gradient">Vibe Faster.</span>
+                We Solve Business Problems{" "}
+                <span className="text-gradient">With AI.</span>
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl">
-                We transform your ideas into stunning websites and automated workflows using cutting-edge AI tools. One-time fee, no subscriptions, no hassle.
+                SharkVibe engineers custom AI solutions that save time, eliminate errors, and generate revenue. One-time investment, complete ownership, no ongoing fees.
               </p>
               
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-opacity glow-primary-sm">
                   <Link to="/contact">
-                    Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+                    Schedule Consultation <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-border hover:bg-muted">
                   <Link to="/audit">
-                    Free Site Audit
+                    Free Technical Audit
                   </Link>
                 </Button>
               </div>
 
-              {/* Floating Cards */}
+              {/* Value Props */}
               <div className="mt-12 flex flex-wrap gap-4">
                 <div className="glass rounded-xl px-4 py-3 flex items-center gap-3 float">
                   <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-primary" />
+                    <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-foreground">10x Faster</p>
-                    <p className="text-xs text-muted-foreground">Development Speed</p>
+                    <p className="text-sm font-semibold text-foreground">Weeks, Not Months</p>
+                    <p className="text-xs text-muted-foreground">Accelerated Delivery</p>
                   </div>
                 </div>
                 <div className="glass rounded-xl px-4 py-3 flex items-center gap-3 float-delayed">
                   <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center">
-                    <DollarSign className="w-5 h-5 text-secondary" />
+                    <Shield className="w-5 h-5 text-secondary" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-foreground">One-Time Fee</p>
-                    <p className="text-xs text-muted-foreground">No Subscriptions</p>
+                    <p className="text-sm font-semibold text-foreground">Complete Ownership</p>
+                    <p className="text-xs text-muted-foreground">One-Time Investment</p>
                   </div>
                 </div>
               </div>
@@ -135,7 +113,7 @@ export default function Index() {
                   <div className="code-dot bg-red-500" />
                   <div className="code-dot bg-yellow-500" />
                   <div className="code-dot bg-green-500" />
-                  <span className="ml-3 text-xs text-muted-foreground font-mono">sharkvibe.js</span>
+                  <span className="ml-3 text-xs text-muted-foreground font-mono">solution.ts</span>
                 </div>
                 <pre className="p-6 text-sm font-mono overflow-x-auto">
                   <code className="text-muted-foreground">
@@ -144,49 +122,49 @@ export default function Index() {
                         {line.includes('const') && (
                           <span>
                             <span className="text-tertiary">const</span>
-                            <span className="text-foreground"> project</span>
+                            <span className="text-foreground"> solution</span>
                             <span className="text-muted-foreground"> = </span>
-                            <span className="text-primary">vibeCode</span>
-                            <span className="text-foreground">({"{"}</span>
+                            <span className="text-primary">SharkVibe</span>
+                            <span className="text-foreground">.engineer({"{"}</span>
                           </span>
                         )}
-                        {line.includes('idea:') && (
+                        {line.includes('problem:') && (
                           <span className="pl-4">
-                            <span className="text-secondary">idea</span>
+                            <span className="text-secondary">problem</span>
                             <span className="text-foreground">: </span>
-                            <span className="text-primary">"your vision"</span>
+                            <span className="text-primary">"your challenge"</span>
                             <span className="text-foreground">,</span>
                           </span>
                         )}
-                        {line.includes('tools:') && (
+                        {line.includes('approach:') && (
                           <span className="pl-4">
-                            <span className="text-secondary">tools</span>
+                            <span className="text-secondary">approach</span>
                             <span className="text-foreground">: [</span>
-                            <span className="text-primary">"Claude"</span>
+                            <span className="text-primary">"strategic"</span>
                             <span className="text-foreground">, </span>
-                            <span className="text-primary">"Cursor"</span>
+                            <span className="text-primary">"systematic"</span>
                             <span className="text-foreground">],</span>
                           </span>
                         )}
-                        {line.includes('speed:') && (
+                        {line.includes('outcome:') && (
                           <span className="pl-4">
-                            <span className="text-secondary">speed</span>
+                            <span className="text-secondary">outcome</span>
                             <span className="text-foreground">: </span>
-                            <span className="text-primary">"lightning"</span>
+                            <span className="text-primary">"measurable results"</span>
                             <span className="text-foreground">,</span>
                           </span>
                         )}
-                        {line.includes('quality:') && (
+                        {line.includes('ownership:') && (
                           <span className="pl-4">
-                            <span className="text-secondary">quality</span>
+                            <span className="text-secondary">ownership</span>
                             <span className="text-foreground">: </span>
-                            <span className="text-primary">"exceptional"</span>
+                            <span className="text-primary">"complete"</span>
                           </span>
                         )}
                         {line.includes('});') && (
                           <span className="text-foreground">{"})"}</span>
                         )}
-                        {line.includes('// Ship') && (
+                        {line.includes('// Delivered') && (
                           <span className="text-muted-foreground">{line}</span>
                         )}
                       </div>
@@ -217,9 +195,9 @@ export default function Index() {
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader
-            label="What We Do"
-            title="Services That Transform"
-            description="From stunning websites to intelligent automations, we build digital experiences that drive results."
+            label="Our Expertise"
+            title="Engineered Solutions, Measurable Results"
+            description="We don't just build—we engineer solutions that drive quantifiable business outcomes."
           />
           
           <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -245,7 +223,7 @@ export default function Index() {
                   to="/services"
                   className="inline-flex items-center gap-2 text-primary font-medium mt-6 hover:gap-3 transition-all"
                 >
-                  Learn More <ArrowRight className="w-4 h-4" />
+                  Explore Solutions <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             ))}
@@ -253,13 +231,13 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Featured Work */}
+      {/* Featured Work / Success Stories */}
       <section className="section-padding bg-card/30">
         <div className="container-custom">
           <SectionHeader
-            label="Our Work"
-            title="Featured Projects"
-            description="A glimpse of what we've built for clients around the world."
+            label="Success Stories"
+            title="Proven Results for Our Clients"
+            description="Every project follows our Problem → Solution → Result methodology."
           />
           
           <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -267,13 +245,13 @@ export default function Index() {
               <div className="col-span-3 flex justify-center py-12">
                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
               </div>
-            ) : (
-              displayProjects.map((project) => (
+            ) : featuredProjects?.length ? (
+              featuredProjects.map((project) => (
                 <div
-                  key={'id' in project ? project.id : project.title}
+                  key={project.id}
                   className="glass rounded-2xl overflow-hidden card-hover group"
                 >
-                  {'image_url' in project && project.image_url ? (
+                  {project.image_url ? (
                     <div className="h-48 overflow-hidden">
                       <img 
                         src={project.image_url} 
@@ -283,19 +261,44 @@ export default function Index() {
                     </div>
                   ) : (
                     <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-500">
-                      {'icon' in project ? project.icon : '🚀'}
+                      🚀
                     </div>
                   )}
                   <div className="p-6">
                     <div className="flex gap-2 mb-3">
-                      {('tags' in project ? project.tags : []).map((tag) => (
+                      {project.tags?.map((tag) => (
                         <span key={tag} className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
                           {tag}
                         </span>
                       ))}
                     </div>
                     <h3 className="text-lg font-bold text-foreground mb-2">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground">{project.description}</p>
+                    <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
+                    {project.stats_improvement && (
+                      <div className="pt-3 border-t border-border/50">
+                        <p className="text-sm font-semibold text-primary">{project.stats_improvement}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))
+            ) : (
+              // Placeholder cards when no projects
+              [
+                { title: "E-commerce Platform", problem: "Manual inventory consuming 20+ hrs/week", result: "92% time reduction, $50K first-month revenue" },
+                { title: "SaaS Dashboard", problem: "No visibility into real-time metrics", result: "40% faster decision-making" },
+                { title: "Lead Generation System", problem: "Inconsistent lead qualification", result: "3x qualified leads, 60% less manual review" },
+              ].map((project) => (
+                <div key={project.title} className="glass rounded-2xl overflow-hidden card-hover group">
+                  <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                    <span className="text-6xl">📊</span>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-foreground mb-2">{project.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-2"><strong>Problem:</strong> {project.problem}</p>
+                    <div className="pt-3 border-t border-border/50">
+                      <p className="text-sm font-semibold text-primary"><strong>Result:</strong> {project.result}</p>
+                    </div>
                   </div>
                 </div>
               ))
@@ -305,7 +308,7 @@ export default function Index() {
           <div className="text-center mt-10">
             <Button asChild variant="outline" className="border-border hover:bg-muted">
               <Link to="/portfolio">
-                View All Projects <ArrowRight className="ml-2 h-4 w-4" />
+                View All Case Studies <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
@@ -320,10 +323,10 @@ export default function Index() {
             <div className="absolute inset-0 bg-grid opacity-20" />
             <div className="relative z-10 py-16 md:py-24 px-8 md:px-16 text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
-                Ready to Build Something Amazing?
+                Ready to Eliminate Inefficiency?
               </h2>
               <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-                Let's turn your vision into reality. Get started with a free consultation today.
+                Schedule a consultation to discuss your challenges. We will provide a clear roadmap with projected outcomes.
               </p>
               <Button
                 asChild
@@ -331,7 +334,7 @@ export default function Index() {
                 className="bg-background text-foreground hover:bg-background/90"
               >
                 <Link to="/contact">
-                  Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+                  Schedule Your Consultation <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
