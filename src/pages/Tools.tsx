@@ -30,34 +30,34 @@ const toolCategories = [
     title: "AI Models & Reasoning",
     icon: "🧠",
     tools: [
-      { 
-        name: "Claude", 
-        company: "Anthropic", 
-        description: "Superior for complex architecture and long-context reasoning",
+      {
+        name: "Claude 3.5",
+        company: "Anthropic",
+        description: "Our primary engine for advanced reasoning and long-context data processing.",
         insight: "Best for: System design, code refactoring, and multi-file operations. 200K context window excels at maintaining coherence across large codebases.",
-        icon: siAnthropic 
+        icon: siAnthropic
       },
-      { 
-        name: "GPT-4", 
-        company: "OpenAI", 
+      {
+        name: "GPT-4",
+        company: "OpenAI",
         description: "Versatile across coding, analysis, and creative tasks",
         insight: "Best for: Rapid prototyping, API integrations, and data analysis. Exceptional speed for iterative development.",
-        icon: Bot, 
-        isLucide: true 
+        icon: Bot,
+        isLucide: true
       },
-      { 
-        name: "Gemini", 
-        company: "Google", 
+      {
+        name: "Gemini",
+        company: "Google",
         description: "Strong multimodal capabilities with deep integration",
         insight: "Best for: Projects requiring visual understanding and Google ecosystem integration.",
-        icon: siGoogle 
+        icon: siGoogle
       },
-      { 
-        name: "Llama", 
-        company: "Meta", 
+      {
+        name: "Llama",
+        company: "Meta",
         description: "Open-source foundation for custom deployments",
         insight: "Best for: Self-hosted solutions requiring data privacy and custom fine-tuning.",
-        icon: siMeta 
+        icon: siMeta
       },
     ],
   },
@@ -65,36 +65,36 @@ const toolCategories = [
     title: "Development Environments",
     icon: "💻",
     tools: [
-      { 
-        name: "Cursor", 
-        company: "Cursor", 
+      {
+        name: "Cursor",
+        company: "Cursor",
         description: "AI-native code editor with codebase awareness",
         insight: "Best for: Complex projects requiring full codebase context. Our primary development environment.",
-        icon: MousePointer2, 
-        isLucide: true 
+        icon: MousePointer2,
+        isLucide: true
       },
-      { 
-        name: "GitHub Copilot", 
-        company: "GitHub", 
+      {
+        name: "GitHub Copilot",
+        company: "GitHub",
         description: "Inline AI assistance integrated with version control",
         insight: "Best for: Teams already invested in GitHub ecosystem. Excellent for boilerplate generation.",
-        icon: siGithub 
+        icon: siGithub
       },
-      { 
-        name: "VS Code", 
-        company: "Microsoft", 
+      {
+        name: "VS Code",
+        company: "Microsoft",
         description: "Industry-standard editor with extensive extension support",
         insight: "Best for: Flexibility and customization. Foundation for many AI-enhanced workflows.",
-        icon: FileCode, 
-        isLucide: true 
+        icon: FileCode,
+        isLucide: true
       },
-      { 
-        name: "Windsurf", 
-        company: "Codeium", 
+      {
+        name: "Windsurf",
+        company: "Codeium",
         description: "Free AI coding assistant with enterprise features",
         insight: "Best for: Cost-conscious projects requiring autocomplete and chat capabilities.",
-        icon: Terminal, 
-        isLucide: true 
+        icon: Terminal,
+        isLucide: true
       },
     ],
   },
@@ -102,34 +102,34 @@ const toolCategories = [
     title: "Rapid Application Builders",
     icon: "🏗️",
     tools: [
-      { 
-        name: "Lovable", 
-        company: "Lovable", 
+      {
+        name: "Lovable",
+        company: "Lovable",
         description: "Full-stack app generation from natural language",
         insight: "Best for: MVPs and prototypes requiring quick iteration. Excellent React/Supabase integration.",
-        icon: Heart, 
-        isLucide: true 
+        icon: Heart,
+        isLucide: true
       },
-      { 
-        name: "Bolt.new", 
-        company: "StackBlitz", 
+      {
+        name: "Bolt.new",
+        company: "StackBlitz",
         description: "Browser-based full-stack development",
         insight: "Best for: Quick deployments without local environment setup. WebContainer technology.",
-        icon: siStackblitz 
+        icon: siStackblitz
       },
-      { 
-        name: "v0", 
-        company: "Vercel", 
+      {
+        name: "v0",
+        company: "Vercel",
         description: "AI-powered UI component generation",
         insight: "Best for: Rapid UI prototyping with shadcn/ui components. Seamless Vercel deployment.",
-        icon: siVercel 
+        icon: siVercel
       },
-      { 
-        name: "Replit", 
-        company: "Replit", 
+      {
+        name: "Replit",
+        company: "Replit",
         description: "Collaborative cloud development with AI assistance",
         insight: "Best for: Team collaboration and educational projects. Multi-language support.",
-        icon: siReplit 
+        icon: siReplit
       },
     ],
   },
@@ -137,34 +137,34 @@ const toolCategories = [
     title: "Automation Platforms",
     icon: "⚙️",
     tools: [
-      { 
-        name: "n8n", 
-        company: "n8n", 
-        description: "Self-hosted workflow automation with unlimited executions",
+      {
+        name: "n8n",
+        company: "n8n",
+        description: "Selected for workflow sovereignty and complex API orchestration.",
         insight: "Best for: Data-sensitive operations requiring self-hosting. No execution limits. Our preferred platform for enterprise clients.",
-        icon: siN8n 
+        icon: siN8n
       },
-      { 
-        name: "Make", 
-        company: "Make", 
+      {
+        name: "Make",
+        company: "Make",
         description: "Visual automation with complex logic handling",
         insight: "Best for: Complex multi-step workflows with branching logic. Superior visual debugging.",
-        icon: siMake 
+        icon: siMake
       },
-      { 
-        name: "Zapier", 
-        company: "Zapier", 
+      {
+        name: "Zapier",
+        company: "Zapier",
         description: "Largest integration library for quick connections",
         insight: "Best for: Simple integrations requiring minimal setup. 6,000+ app connections.",
-        icon: siZapier 
+        icon: siZapier
       },
-      { 
-        name: "Activepieces", 
-        company: "Activepieces", 
+      {
+        name: "Activepieces",
+        company: "Activepieces",
         description: "Open-source automation alternative",
         insight: "Best for: Budget-conscious implementations requiring self-hosting flexibility.",
-        icon: Puzzle, 
-        isLucide: true 
+        icon: Puzzle,
+        isLucide: true
       },
     ],
   },
@@ -172,36 +172,36 @@ const toolCategories = [
     title: "Visual & Design",
     icon: "🎨",
     tools: [
-      { 
-        name: "Midjourney", 
-        company: "Midjourney", 
+      {
+        name: "Midjourney",
+        company: "Midjourney",
         description: "Premium AI image generation for creative assets",
         insight: "Best for: Marketing visuals and brand imagery. Highest quality aesthetic output.",
-        icon: Palette, 
-        isLucide: true 
+        icon: Palette,
+        isLucide: true
       },
-      { 
-        name: "DALL-E 3", 
-        company: "OpenAI", 
+      {
+        name: "DALL-E 3",
+        company: "OpenAI",
         description: "Precise prompt adherence for specific requirements",
         insight: "Best for: Technical illustrations and precise visual specifications.",
-        icon: ImageIcon, 
-        isLucide: true 
+        icon: ImageIcon,
+        isLucide: true
       },
-      { 
-        name: "Figma", 
-        company: "Figma", 
+      {
+        name: "Figma",
+        company: "Figma",
         description: "Collaborative design and prototyping platform",
         insight: "Best for: Design handoff and component systems. Industry standard for web design.",
-        icon: siFigma 
+        icon: siFigma
       },
-      { 
-        name: "Stable Diffusion", 
-        company: "Stability AI", 
+      {
+        name: "Stable Diffusion",
+        company: "Stability AI",
         description: "Open-source image generation for custom pipelines",
         insight: "Best for: Self-hosted image generation with custom models and fine-tuning.",
-        icon: Sparkles, 
-        isLucide: true 
+        icon: Sparkles,
+        isLucide: true
       },
     ],
   },
@@ -209,33 +209,33 @@ const toolCategories = [
     title: "Infrastructure & Deployment",
     icon: "🚀",
     tools: [
-      { 
-        name: "Vercel", 
-        company: "Vercel", 
+      {
+        name: "Vercel",
+        company: "Vercel",
         description: "Frontend cloud with edge functions",
         insight: "Best for: React/Next.js deployments requiring global edge performance. Excellent DX.",
-        icon: siVercel 
+        icon: siVercel
       },
-      { 
-        name: "Netlify", 
-        company: "Netlify", 
+      {
+        name: "Netlify",
+        company: "Netlify",
         description: "Jamstack deployment with integrated CI/CD",
         insight: "Best for: Static sites and serverless functions. Generous free tier.",
-        icon: siNetlify 
+        icon: siNetlify
       },
-      { 
-        name: "Supabase", 
-        company: "Supabase", 
-        description: "Open-source Firebase alternative with PostgreSQL",
+      {
+        name: "Supabase",
+        company: "Supabase",
+        description: "Chosen for enterprise-grade data security and real-time scalability.",
         insight: "Best for: Full-stack apps requiring auth, database, and real-time. Our default backend.",
-        icon: siSupabase 
+        icon: siSupabase
       },
-      { 
-        name: "Railway", 
-        company: "Railway", 
+      {
+        name: "Railway",
+        company: "Railway",
         description: "Simplified infrastructure for any stack",
         insight: "Best for: Backend services, databases, and custom Docker deployments.",
-        icon: siRailway 
+        icon: siRailway
       },
     ],
   },
