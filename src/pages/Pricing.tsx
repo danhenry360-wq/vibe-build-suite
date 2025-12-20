@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Star, Calculator } from "lucide-react";
+import { ArrowRight, Check, Star, TrendingDown, ShieldCheck, DollarSign, Clock, Calculator } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import {
@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
 
 const pricingPlans = [
   {
@@ -72,34 +73,7 @@ const pricingPlans = [
   },
 ];
 
-const tcoComparison = {
-  traditional: {
-    label: "Traditional Agency",
-    initialBuild: "$8,000 - $25,000",
-    monthlyRetainer: "$1,500 - $3,000/mo",
-    year1Total: "$26,000 - $61,000",
-    year3Total: "$62,000 - $133,000",
-    notes: [
-      "Locked into ongoing contracts",
-      "Vendor dependency for changes",
-      "Limited code access",
-      "Scope creep charges",
-    ],
-  },
-  sharkvibe: {
-    label: "SharkVibe",
-    initialBuild: "$997 - $2,997",
-    monthlyRetainer: "$0",
-    year1Total: "$997 - $3,237",
-    year3Total: "$997 - $3,237",
-    notes: [
-      "Complete ownership from day one",
-      "Zero vendor lock-in",
-      "Full source code access",
-      "Optional support when needed",
-    ],
-  },
-};
+
 
 const faqs = [
   {
@@ -149,9 +123,8 @@ export default function Pricing() {
             {pricingPlans.map((plan) => (
               <div
                 key={plan.name}
-                className={`glass rounded-2xl p-8 relative ${
-                  plan.popular ? "ring-2 ring-primary" : ""
-                }`}
+                className={`glass rounded-2xl p-8 relative ${plan.popular ? "ring-2 ring-primary" : ""
+                  }`}
               >
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -160,17 +133,17 @@ export default function Pricing() {
                     </span>
                   </div>
                 )}
-                
+
                 <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
-                
+
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                   <span className="text-muted-foreground ml-2">/{plan.period}</span>
                 </div>
-                
+
                 <p className="text-sm text-primary font-medium mb-6">{plan.delivery}</p>
-                
+
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-sm text-foreground">
@@ -179,14 +152,13 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                
+
                 <Button
                   asChild
-                  className={`w-full ${
-                    plan.popular
-                      ? "bg-gradient-primary text-primary-foreground hover:opacity-90"
-                      : "bg-muted text-foreground hover:bg-muted/80"
-                  }`}
+                  className={`w-full ${plan.popular
+                    ? "bg-gradient-primary text-primary-foreground hover:opacity-90"
+                    : "bg-muted text-foreground hover:bg-muted/80"
+                    }`}
                 >
                   <Link to="/contact">
                     {plan.cta} <ArrowRight className="ml-2 h-4 w-4" />
@@ -198,97 +170,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Total Cost of Ownership Comparison */}
-      <section className="pb-16 md:pb-24">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-primary mb-4">
-              <Calculator className="w-5 h-5" />
-              <span className="text-sm font-medium uppercase tracking-wide">Total Cost of Ownership Analysis</span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              The True Cost Comparison
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Traditional agencies profit from ongoing retainers. We believe you should own your digital assets outright.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Traditional Agency */}
-            <div className="glass rounded-2xl p-8 border border-border/50">
-              <h3 className="text-xl font-bold text-foreground mb-6">{tcoComparison.traditional.label}</h3>
-              <div className="space-y-4 mb-6">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Initial Build</span>
-                  <span className="text-foreground font-medium">{tcoComparison.traditional.initialBuild}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Monthly Retainer</span>
-                  <span className="text-foreground font-medium">{tcoComparison.traditional.monthlyRetainer}</span>
-                </div>
-                <div className="h-px bg-border" />
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Year 1 Total</span>
-                  <span className="text-foreground font-bold">{tcoComparison.traditional.year1Total}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">3-Year Total</span>
-                  <span className="text-foreground font-bold">{tcoComparison.traditional.year3Total}</span>
-                </div>
-              </div>
-              <ul className="space-y-2">
-                {tcoComparison.traditional.notes.map((note) => (
-                  <li key={note} className="text-sm text-muted-foreground flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-destructive" />
-                    {note}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* SharkVibe */}
-            <div className="glass rounded-2xl p-8 ring-2 ring-primary">
-              <h3 className="text-xl font-bold text-primary mb-6">{tcoComparison.sharkvibe.label}</h3>
-              <div className="space-y-4 mb-6">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Initial Build</span>
-                  <span className="text-foreground font-medium">{tcoComparison.sharkvibe.initialBuild}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Monthly Retainer</span>
-                  <span className="text-primary font-bold">{tcoComparison.sharkvibe.monthlyRetainer}</span>
-                </div>
-                <div className="h-px bg-border" />
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Year 1 Total</span>
-                  <span className="text-primary font-bold">{tcoComparison.sharkvibe.year1Total}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">3-Year Total</span>
-                  <span className="text-primary font-bold">{tcoComparison.sharkvibe.year3Total}</span>
-                </div>
-              </div>
-              <ul className="space-y-2">
-                {tcoComparison.sharkvibe.notes.map((note) => (
-                  <li key={note} className="text-sm text-foreground flex items-center gap-2">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    {note}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-8 glass rounded-xl p-6 text-center">
-            <p className="text-lg font-medium text-foreground">
-              Average 3-year savings with SharkVibe: <span className="text-primary font-bold">$60,000 - $130,000</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Guarantee */}
+      {/* Satisfaction Guarantee */}
       <section className="pb-16 md:pb-24">
         <div className="container-custom">
           <div className="glass rounded-2xl p-8 md:p-12 text-center">
@@ -303,6 +185,105 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* TCO Comparison Section */}
+      <section className="section-padding relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary/5 -skew-y-6 transform origin-top-left" />
+        <div className="container-custom relative z-10">
+          <SectionHeader
+            label="Total Cost of Ownership"
+            title="Traditional Agencies vs. SharkVibe"
+            description="The math is simple. Stop paying for overhead and start paying for results."
+          />
+
+          <div className="mt-12 max-w-4xl mx-auto">
+            <div className="glass rounded-3xl overflow-hidden shadow-2xl border-primary/20">
+              <div className="grid grid-cols-3 bg-muted/50 p-6 border-b border-border">
+                <div className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Metric</div>
+                <div className="text-sm font-bold text-muted-foreground uppercase tracking-wider text-center">Traditional Agency</div>
+                <div className="text-sm font-bold text-primary uppercase tracking-wider text-center">SharkVibe</div>
+              </div>
+
+              {/* Metric 1 */}
+              <div className="grid grid-cols-3 p-8 border-b border-border/50 items-center">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
+                    <Star className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <p className="font-bold">Initial Build</p>
+                    <p className="text-xs text-muted-foreground">Setup & Design</p>
+                  </div>
+                </div>
+                <div className="text-center font-medium text-muted-foreground line-through opacity-70">$10,000+</div>
+                <div className="text-center">
+                  <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">$2,997</span>
+                </div>
+              </div>
+
+              {/* Metric 2 */}
+              <div className="grid grid-cols-3 p-8 border-b border-border/50 items-center bg-card/10">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
+                    <DollarSign className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <p className="font-bold">Monthly Fees</p>
+                    <p className="text-xs text-muted-foreground">"Retainer" costs</p>
+                  </div>
+                </div>
+                <div className="text-center font-medium text-muted-foreground">$2,500/mo</div>
+                <div className="text-center">
+                  <Badge variant="outline" className="text-primary border-primary bg-primary/5 px-4">
+                    $0 /mo
+                  </Badge>
+                </div>
+              </div>
+
+              {/* Metric 3 */}
+              <div className="grid grid-cols-3 p-8 items-center">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <p className="font-bold">3-Year Total</p>
+                    <p className="text-xs text-muted-foreground">Lifetime Value</p>
+                  </div>
+                </div>
+                <div className="text-center font-medium text-muted-foreground">$100,000+</div>
+                <div className="text-center">
+                  <div className="scale-110">
+                    <p className="text-3xl font-black text-foreground">~$3,000</p>
+                    <div className="flex items-center justify-center gap-1 text-[10px] text-green-500 font-bold uppercase">
+                      <TrendingDown size={10} /> 97% Lower
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bold High-Contrast Callout */}
+              <div className="bg-gradient-full p-8 text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-grid opacity-20" />
+                <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                      <ShieldCheck className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-primary-foreground/80 text-sm font-medium">Potential Capital Saved</p>
+                      <h4 className="text-3xl md:text-4xl font-black text-white">$97,000.00</h4>
+                    </div>
+                  </div>
+                  <div className="h-12 w-px bg-white/20 hidden md:block" />
+                  <p className="text-primary-foreground/90 max-w-[240px] text-sm font-medium">
+                    That's capital you can reinvest back into your growth, not into an agency's overhead.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* FAQs */}
       <section className="section-padding bg-card/30">
         <div className="container-custom">
@@ -311,7 +292,7 @@ export default function Pricing() {
             title="Frequently Asked Questions"
             description="Everything you need to know about working with SharkVibe."
           />
-          
+
           <div className="max-w-3xl mx-auto mt-12">
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
