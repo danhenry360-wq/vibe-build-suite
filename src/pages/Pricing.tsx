@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Star } from "lucide-react";
+import { ArrowRight, Check, Star, Calculator } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import {
@@ -15,17 +15,18 @@ const pricingPlans = [
     name: "Starter",
     price: "$997",
     period: "one-time",
-    description: "Perfect for getting started with a professional online presence.",
+    description: "Ideal for establishing a professional digital presence with core functionality.",
     features: [
-      "Single page website/landing page",
-      "Mobile responsive design",
-      "Basic SEO optimization",
-      "Contact form integration",
+      "Single-page website or landing page",
+      "Mobile-first responsive design",
+      "Foundational SEO implementation",
+      "Contact form with email integration",
+      "Performance optimization (90+ Lighthouse)",
       "1 revision round",
-      "Deployment & documentation",
-      "Source code ownership",
+      "Deployment & technical documentation",
+      "Full source code ownership",
     ],
-    delivery: "~1-2 week delivery",
+    delivery: "1-2 week delivery",
     cta: "Get Started",
     popular: false,
   },
@@ -33,66 +34,97 @@ const pricingPlans = [
     name: "Professional",
     price: "$2,997",
     period: "one-time",
-    description: "Comprehensive solution for growing businesses.",
+    description: "Comprehensive solution for businesses requiring advanced functionality and scalability.",
     features: [
       "Multi-page site (up to 7 pages)",
-      "Custom design & animations",
-      "Advanced SEO & analytics",
-      "CMS integration",
-      "1 automation workflow",
+      "Custom design with micro-animations",
+      "Advanced technical SEO & schema markup",
+      "CMS integration (Sanity, Strapi, or similar)",
+      "Analytics & conversion tracking setup",
+      "1 automation workflow included",
       "3 revision rounds",
-      "30 days support",
-      "Source code ownership",
+      "30 days post-launch support",
+      "Full source code ownership",
     ],
-    delivery: "~2-4 week delivery",
+    delivery: "2-4 week delivery",
     cta: "Get Started",
     popular: true,
   },
   {
     name: "Enterprise",
     price: "Custom",
-    period: "tailored",
-    description: "Full-scale solutions for complex requirements.",
+    period: "scoped",
+    description: "Full-scale solutions for complex requirements and enterprise-grade implementations.",
     features: [
-      "Web applications",
-      "Full automation suites",
-      "AI/ML integrations",
-      "E-commerce solutions",
-      "API development",
-      "Unlimited revisions",
-      "Priority support",
+      "Custom web applications",
+      "Comprehensive automation suites",
+      "AI/ML system integration",
+      "E-commerce platforms with payment processing",
+      "Custom API development",
+      "Database architecture & optimization",
+      "Unlimited revisions within scope",
+      "Priority support channel",
       "Dedicated project manager",
     ],
-    delivery: "Tailored timeline",
-    cta: "Contact Us",
+    delivery: "Scoped timeline",
+    cta: "Request Proposal",
     popular: false,
   },
 ];
 
+const tcoComparison = {
+  traditional: {
+    label: "Traditional Agency",
+    initialBuild: "$8,000 - $25,000",
+    monthlyRetainer: "$1,500 - $3,000/mo",
+    year1Total: "$26,000 - $61,000",
+    year3Total: "$62,000 - $133,000",
+    notes: [
+      "Locked into ongoing contracts",
+      "Vendor dependency for changes",
+      "Limited code access",
+      "Scope creep charges",
+    ],
+  },
+  sharkvibe: {
+    label: "SharkVibe",
+    initialBuild: "$997 - $2,997",
+    monthlyRetainer: "$0",
+    year1Total: "$997 - $3,237",
+    year3Total: "$997 - $3,237",
+    notes: [
+      "Complete ownership from day one",
+      "Zero vendor lock-in",
+      "Full source code access",
+      "Optional support when needed",
+    ],
+  },
+};
+
 const faqs = [
   {
-    question: "What's included in the one-time fee?",
-    answer: "Everything you need to launch: design, development, testing, deployment, documentation, and source code. You own everything we create, including full rights to the code and assets.",
+    question: "What exactly is included in the one-time fee?",
+    answer: "Everything required for a production-ready launch: requirements analysis, design, development, testing, deployment, technical documentation, and complete source code transfer. You own 100% of what we create, including all intellectual property rights.",
   },
   {
-    question: "Do I need to pay monthly hosting?",
-    answer: "We deploy to platforms like Vercel or Netlify which offer generous free tiers. Most small to medium sites cost $0/month to host. For larger sites, hosting typically costs $10-20/month.",
+    question: "What are the ongoing hosting costs?",
+    answer: "We deploy to platforms like Vercel, Netlify, or your preferred infrastructure. Most projects qualify for free-tier hosting ($0/month). Larger applications with significant traffic typically cost $10-50/month depending on usage.",
   },
   {
-    question: "What if I need changes after launch?",
-    answer: "Minor updates and bug fixes are included in your support period. For new features or major changes, we offer hourly rates ($150/hr) or can scope a new project at discounted rates for existing clients.",
+    question: "How do you handle changes after launch?",
+    answer: "Minor updates and bug fixes are covered during your support period. For new features or scope expansion, we offer hourly consulting ($150/hr) or can scope additional project phases at preferred rates for existing clients.",
   },
   {
-    question: "How fast can you deliver?",
-    answer: "Starter projects typically launch in 1-2 weeks. Professional projects take 2-4 weeks. Enterprise timelines vary based on scope. We use AI-powered development tools to move 10x faster than traditional agencies.",
+    question: "What makes your delivery timeline so fast?",
+    answer: "We leverage AI-accelerated development methodologies across our entire workflow—from code generation to testing to documentation. This allows us to deliver in weeks what traditionally takes months, without compromising quality or maintainability.",
   },
   {
     question: "Do you offer payment plans?",
-    answer: "Yes! We typically split larger projects 50/50 (half upfront, half on completion). For Enterprise projects, we can arrange custom payment schedules.",
+    answer: "Yes. Standard projects are split 50/50 (half upfront, half on completion). Enterprise engagements can be structured with milestone-based payments. We can discuss arrangements during your consultation.",
   },
   {
-    question: "What if I'm not satisfied?",
-    answer: "We revise until you love it. If we can't meet your expectations after reasonable revisions, we'll refund your deposit. Your satisfaction is our priority.",
+    question: "What is your satisfaction guarantee?",
+    answer: "We revise until the deliverables meet the agreed specifications. If we fundamentally cannot meet your documented requirements, we will refund your deposit. Our 100% project success rate reflects our commitment to client satisfaction.",
   },
 ];
 
@@ -103,9 +135,9 @@ export default function Pricing() {
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader
-            label="Transparent Pricing"
-            title="One-Time Fee, Lifetime Value"
-            description="No subscriptions, no hidden costs. Pay once and own everything."
+            label="Investment Options"
+            title="Transparent Pricing, Complete Ownership"
+            description="One-time investment. No subscriptions. No hidden costs. You own everything."
           />
         </div>
       </section>
@@ -124,7 +156,7 @@ export default function Pricing() {
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-gradient-primary text-primary-foreground text-xs font-bold px-4 py-1 rounded-full flex items-center gap-1">
-                      <Star className="w-3 h-3" /> MOST POPULAR
+                      <Star className="w-3 h-3" /> RECOMMENDED
                     </span>
                   </div>
                 )}
@@ -166,66 +198,107 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Guarantee */}
+      {/* Total Cost of Ownership Comparison */}
       <section className="pb-16 md:pb-24">
         <div className="container-custom">
-          <div className="glass rounded-2xl p-8 md:p-12 text-center">
-            <div className="text-5xl mb-6">💯</div>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 text-primary mb-4">
+              <Calculator className="w-5 h-5" />
+              <span className="text-sm font-medium uppercase tracking-wide">Total Cost of Ownership Analysis</span>
+            </div>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Satisfaction Guarantee
+              The True Cost Comparison
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Not happy? We revise until you love it or refund your deposit. We're confident in our work and committed to your success.
+              Traditional agencies profit from ongoing retainers. We believe you should own your digital assets outright.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Traditional Agency */}
+            <div className="glass rounded-2xl p-8 border border-border/50">
+              <h3 className="text-xl font-bold text-foreground mb-6">{tcoComparison.traditional.label}</h3>
+              <div className="space-y-4 mb-6">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Initial Build</span>
+                  <span className="text-foreground font-medium">{tcoComparison.traditional.initialBuild}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Monthly Retainer</span>
+                  <span className="text-foreground font-medium">{tcoComparison.traditional.monthlyRetainer}</span>
+                </div>
+                <div className="h-px bg-border" />
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Year 1 Total</span>
+                  <span className="text-foreground font-bold">{tcoComparison.traditional.year1Total}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">3-Year Total</span>
+                  <span className="text-foreground font-bold">{tcoComparison.traditional.year3Total}</span>
+                </div>
+              </div>
+              <ul className="space-y-2">
+                {tcoComparison.traditional.notes.map((note) => (
+                  <li key={note} className="text-sm text-muted-foreground flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-destructive" />
+                    {note}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* SharkVibe */}
+            <div className="glass rounded-2xl p-8 ring-2 ring-primary">
+              <h3 className="text-xl font-bold text-primary mb-6">{tcoComparison.sharkvibe.label}</h3>
+              <div className="space-y-4 mb-6">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Initial Build</span>
+                  <span className="text-foreground font-medium">{tcoComparison.sharkvibe.initialBuild}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Monthly Retainer</span>
+                  <span className="text-primary font-bold">{tcoComparison.sharkvibe.monthlyRetainer}</span>
+                </div>
+                <div className="h-px bg-border" />
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Year 1 Total</span>
+                  <span className="text-primary font-bold">{tcoComparison.sharkvibe.year1Total}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">3-Year Total</span>
+                  <span className="text-primary font-bold">{tcoComparison.sharkvibe.year3Total}</span>
+                </div>
+              </div>
+              <ul className="space-y-2">
+                {tcoComparison.sharkvibe.notes.map((note) => (
+                  <li key={note} className="text-sm text-foreground flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    {note}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 glass rounded-xl p-6 text-center">
+            <p className="text-lg font-medium text-foreground">
+              Average 3-year savings with SharkVibe: <span className="text-primary font-bold">$60,000 - $130,000</span>
             </p>
           </div>
         </div>
       </section>
 
-      {/* Why One-Time Fees */}
+      {/* Guarantee */}
       <section className="pb-16 md:pb-24">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Why One-Time Fees?
-              </h2>
-              <p className="text-muted-foreground mb-6">
-                Traditional agencies lock you into $500-2,000/month retainers for "maintenance" that often amounts to very little actual work. We believe you should own your digital presence outright.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground">Full ownership of code and assets</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground">No vendor lock-in or hidden costs</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground">Free to host anywhere you choose</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground">Support when you need it, not forced</span>
-                </li>
-              </ul>
-            </div>
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-lg font-bold text-foreground mb-4">Traditional Agency</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Initial build: $5,000+ <br />
-                Monthly retainer: $500-2,000 <br />
-                Year 1 total: $11,000-29,000
-              </p>
-              <div className="h-px bg-border my-6" />
-              <h3 className="text-lg font-bold text-primary mb-4">SharkVibe</h3>
-              <p className="text-muted-foreground text-sm">
-                One-time fee: $997-2,997 <br />
-                Monthly hosting: $0-20 <br />
-                Year 1 total: $997-3,237
-              </p>
-            </div>
+          <div className="glass rounded-2xl p-8 md:p-12 text-center">
+            <div className="text-5xl mb-6">🛡️</div>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Satisfaction Guarantee
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We revise until deliverables meet specifications. If we cannot fulfill documented requirements, we refund your deposit. Our 100% success rate reflects this commitment.
+            </p>
           </div>
         </div>
       </section>
@@ -234,9 +307,9 @@ export default function Pricing() {
       <section className="section-padding bg-card/30">
         <div className="container-custom">
           <SectionHeader
-            label="Questions?"
+            label="Common Questions"
             title="Frequently Asked Questions"
-            description="Everything you need to know about our services and pricing."
+            description="Everything you need to know about working with SharkVibe."
           />
           
           <div className="max-w-3xl mx-auto mt-12">
@@ -264,14 +337,14 @@ export default function Pricing() {
       <section className="section-padding">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Start?
+            Ready to Discuss Your Project?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let's discuss your project and find the perfect solution for your budget.
+            Schedule a consultation. We will scope your requirements and provide a detailed proposal.
           </p>
           <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
             <Link to="/contact">
-              Get Your Free Quote <ArrowRight className="ml-2 h-4 w-4" />
+              Schedule Your Consultation <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>

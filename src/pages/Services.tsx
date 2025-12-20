@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Globe, Cog, Search, Bot, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Globe, Cog, Search, Bot, CheckCircle2, FileCheck, ClipboardCheck, Settings, Users, Rocket } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 
@@ -8,64 +8,64 @@ const services = [
   {
     id: "websites",
     icon: Globe,
-    title: "AI-Powered Website Development",
-    description: "Custom websites built with cutting-edge AI tools. No templates, no compromises. Every site is tailored to your brand and optimized for performance.",
+    title: "Custom Web Solutions",
+    description: "Revenue-focused websites and applications engineered for conversion, performance, and scalability. Every element is designed with your business objectives in mind.",
     features: [
-      "Landing Pages & Marketing Sites",
-      "E-commerce Stores",
-      "Web Applications & Dashboards",
-      "Portfolio & Personal Sites",
-      "SaaS Product Pages",
+      "Conversion-Optimized Landing Pages",
+      "Scalable E-commerce Platforms",
+      "Enterprise Web Applications & Dashboards",
+      "Progressive Web Apps (PWA)",
+      "API-First Architecture",
     ],
-    cta: "Get Started",
+    cta: "Discuss Your Project",
     ctaLink: "/contact",
   },
   {
     id: "automation",
     icon: Cog,
-    title: "Workflow Automation",
-    description: "Intelligent automations that save you hours every week. We connect your tools and eliminate repetitive tasks so you can focus on what matters.",
+    title: "Process Automation Engineering",
+    description: "Eliminate manual tasks and human error with intelligent automation. Our solutions typically save clients 15-40 hours per week while improving data accuracy to 99%+.",
     features: [
-      "n8n Workflows (self-hosted)",
-      "Make.com Automations",
-      "Zapier Integrations",
-      "Custom API Connections",
-      "Email Sequences",
-      "Data Pipelines",
+      "End-to-End Workflow Automation",
+      "CRM & ERP Integration",
+      "Data Pipeline Engineering",
+      "Custom API Development",
+      "Email & Notification Systems",
+      "Reporting Automation",
     ],
-    cta: "Get Started",
+    cta: "Discuss Your Project",
     ctaLink: "/contact",
   },
   {
     id: "audits",
     icon: Search,
-    title: "Site Audits & Optimization",
-    description: "Comprehensive analysis of your existing website with actionable recommendations to improve performance, SEO, and user experience.",
+    title: "Technical Audit & Optimization",
+    description: "Comprehensive analysis of your existing systems with actionable recommendations. We identify bottlenecks, security vulnerabilities, and optimization opportunities.",
     features: [
       "Performance Analysis (Core Web Vitals)",
-      "SEO Health Check",
-      "Accessibility Review",
-      "Mobile Responsiveness",
-      "Security Assessment",
-      "Competitor Analysis",
+      "Technical SEO Assessment",
+      "Security Vulnerability Scan",
+      "Architecture Review",
+      "Accessibility Compliance Check",
+      "Competitive Technical Analysis",
     ],
-    cta: "Try Free Audit",
+    cta: "Request Free Audit",
     ctaLink: "/audit",
   },
   {
     id: "ai",
     icon: Bot,
-    title: "AI Integration Services",
-    description: "Embed intelligent features into your products using the latest AI models. From chatbots to content generation, we make AI accessible.",
+    title: "AI Implementation Services",
+    description: "Deploy production-ready AI systems that enhance customer experience and operational efficiency. We specialize in practical AI applications with measurable ROI.",
     features: [
-      "AI Chatbots & Assistants",
-      "Content Generation Systems",
-      "Image & Video AI",
-      "Voice Assistants",
-      "RAG Systems (Q&A from your data)",
-      "Custom AI Solutions",
+      "Intelligent Customer Assistants",
+      "Automated Content Generation",
+      "Document Processing & Analysis",
+      "Custom RAG Systems (Q&A from your data)",
+      "Predictive Analytics Integration",
+      "AI-Powered Decision Support",
     ],
-    cta: "Get Started",
+    cta: "Discuss Your Project",
     ctaLink: "/contact",
   },
 ];
@@ -73,28 +73,33 @@ const services = [
 const process = [
   {
     step: "01",
-    title: "Discovery",
-    description: "We learn about your vision, goals, and requirements through a detailed consultation.",
+    title: "Discovery & Analysis",
+    icon: Search,
+    description: "We conduct a thorough assessment of your current systems, business objectives, and technical requirements. This phase includes stakeholder interviews and documentation review.",
   },
   {
     step: "02",
-    title: "Proposal",
-    description: "You receive a clear quote with timeline, deliverables, and transparent pricing.",
+    title: "Solution Architecture",
+    icon: FileCheck,
+    description: "Our engineers design a comprehensive solution with detailed specifications, technology stack recommendations, and a clear implementation roadmap with milestones.",
   },
   {
     step: "03",
-    title: "Build",
-    description: "We develop your project using AI-powered tools for maximum speed and quality.",
+    title: "Agile Development",
+    icon: Settings,
+    description: "We build in iterative sprints with regular progress updates. Each deliverable is tested rigorously before integration. You have visibility at every stage.",
   },
   {
     step: "04",
-    title: "Review",
-    description: "You provide feedback and we make refinements until everything is perfect.",
+    title: "Quality Assurance",
+    icon: ClipboardCheck,
+    description: "Comprehensive testing including functionality, performance, security, and user acceptance. We refine until every requirement is met to specification.",
   },
   {
     step: "05",
-    title: "Launch",
-    description: "We deploy your project and provide documentation for ongoing success.",
+    title: "Deployment & Handover",
+    icon: Rocket,
+    description: "Production deployment with zero-downtime strategies. Complete documentation, source code transfer, and training sessions for your team.",
   },
 ];
 
@@ -105,9 +110,9 @@ export default function Services() {
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader
-            label="What We Do"
-            title="Services That Transform Ideas"
-            description="We combine cutting-edge AI tools with expert craftsmanship to deliver exceptional digital experiences. Fast, affordable, and built to last."
+            label="Our Expertise"
+            title="Engineering Excellence, Delivered"
+            description="We combine deep technical expertise with AI-accelerated development to deliver enterprise-grade solutions at unprecedented speed."
           />
         </div>
       </section>
@@ -165,16 +170,19 @@ export default function Services() {
       <section className="section-padding bg-card/30">
         <div className="container-custom">
           <SectionHeader
-            label="Our Process"
-            title="How We Work"
-            description="A simple, transparent process designed to deliver results efficiently."
+            label="Our Methodology"
+            title="A Rigorous Engineering Process"
+            description="Every project follows our proven five-phase methodology, ensuring predictable outcomes and transparent communication."
           />
           
           <div className="grid md:grid-cols-5 gap-6 mt-12">
             {process.map((step, index) => (
               <div key={step.step} className="relative">
                 <div className="glass rounded-2xl p-6 h-full">
-                  <span className="text-4xl font-bold text-gradient mb-4 block">{step.step}</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-3xl font-bold text-gradient">{step.step}</span>
+                    <step.icon className="w-5 h-5 text-primary" />
+                  </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.description}</p>
                 </div>
@@ -193,19 +201,19 @@ export default function Services() {
       <section className="section-padding">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Get Started?
+            Ready to Discuss Your Project?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let's discuss your project and find the perfect solution for your needs.
+            Schedule a consultation to explore how we can solve your specific challenges with a tailored solution.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90">
               <Link to="/contact">
-                Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+                Schedule Consultation <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link to="/pricing">View Pricing</Link>
+              <Link to="/pricing">View Investment Options</Link>
             </Button>
           </div>
         </div>
