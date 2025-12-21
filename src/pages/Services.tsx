@@ -109,13 +109,36 @@ const process = [
 const ServiceVisual = ({ id }: { id: string }) => {
   if (id === "websites") {
     return (
-      <div className="absolute inset-0 w-full h-full">
-        <img
-          src="/images/services/web-architecture.png"
-          alt="Web Architecture"
-          className="w-full h-full object-cover opacity-60 group-hover:opacity-90 transition-opacity duration-700"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+      <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black/40 perspective-[1000px]">
+        {/* Isometric Grid */}
+        <div className="absolute inset-[-50%] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [transform:rotateX(60deg)] animate-[grid-flow_20s_linear_infinite]" />
+
+        {/* Floating Server Blocks */}
+        <div className="relative z-10 grid grid-cols-3 gap-8 transform rotate-x-12">
+          {[...Array(9)].map((_, i) => (
+            <div key={i} className={`
+                    w-12 h-12 rounded-lg border border-primary/30 bg-primary/5 backdrop-blur-sm
+                    shadow-[0_0_15px_rgba(var(--primary),0.2)]
+                    flex items-center justify-center
+                    animate-[float_6s_ease-in-out_infinite]
+                `} style={{ animationDelay: `${i * 0.2}s` }}>
+              <Globe size={20} className="text-primary/60" />
+            </div>
+          ))}
+        </div>
+
+        {/* Data Streams */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="absolute w-[2px] h-[100px] bg-gradient-to-b from-transparent via-cyan-400 to-transparent opacity-50 animate-[drop_3s_linear_infinite]"
+              style={{
+                left: `${20 + i * 15}%`,
+                top: '-20%',
+                animationDelay: `${Math.random() * 2}s`
+              }}
+            />
+          ))}
+        </div>
       </div>
     );
   }
