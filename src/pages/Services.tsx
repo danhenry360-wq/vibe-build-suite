@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Globe, Cog, Search, Bot, CheckCircle2, FileCheck, ClipboardCheck, Settings, Rocket, Zap, Crosshair } from "lucide-react";
+import { ArrowRight, Globe, Cog, Search, Bot, CheckCircle2, FileCheck, ClipboardCheck, Settings, Rocket, Zap, Crosshair, Brain, Network, ShieldAlert, Cpu } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Reveal } from "@/components/Reveal";
@@ -106,6 +106,98 @@ const process = [
   },
 ];
 
+const ServiceVisual = ({ id }: { id: string }) => {
+  if (id === "websites") {
+    return (
+      <div className="absolute inset-0 w-full h-full">
+        <img
+          src="/images/services/web-architecture.png"
+          alt="Web Architecture"
+          className="w-full h-full object-cover opacity-60 group-hover:opacity-90 transition-opacity duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+      </div>
+    );
+  }
+
+  if (id === "automation") {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-20" />
+        {/* Main Gear */}
+        <div className="absolute animate-[spin_10s_linear_infinite] opacity-30 text-primary">
+          <Cog size={240} strokeWidth={0.5} />
+        </div>
+        {/* Secondary Gears */}
+        <div className="absolute top-10 right-10 animate-[spin_5s_linear_infinite_reverse] opacity-20 text-blue-500">
+          <Settings size={120} strokeWidth={1} />
+        </div>
+        <div className="absolute bottom-10 left-10 animate-[spin_7s_linear_infinite] opacity-20 text-purple-500">
+          <Cog size={100} strokeWidth={1} />
+        </div>
+        {/* Connecting Lines (Simulated) */}
+        <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent top-1/2" />
+        <div className="absolute w-[1px] h-full bg-gradient-to-b from-transparent via-primary/50 to-transparent left-1/2" />
+      </div>
+    );
+  }
+
+  if (id === "audits") {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black/20">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-background to-background" />
+        {/* Radar Scanner Effect */}
+        <div className="absolute inset-0 border-2 border-red-500/10 rounded-full scale-150 animate-pulse" />
+        <div className="absolute inset-0 border-2 border-red-500/10 rounded-full scale-100 animate-pulse delay-75" />
+
+        <div className="z-10 bg-background/50 backdrop-blur-sm p-6 rounded-xl border border-red-500/30 shadow-[0_0_30px_rgba(239,68,68,0.2)]">
+          <ShieldAlert size={80} className="text-red-500" />
+        </div>
+
+        {/* Searching Nodes */}
+        <div className="absolute top-1/4 left-1/4 animate-bounce delay-100 opacity-50">
+          <Search size={24} className="text-red-400" />
+        </div>
+        <div className="absolute bottom-1/3 right-1/4 animate-bounce delay-300 opacity-50">
+          <FileCheck size={24} className="text-red-400" />
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "ai") {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+        {/* Neural Network Connections */}
+        <div className="absolute inset-0 opacity-20">
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.2" className="text-primary animate-pulse" />
+            <line x1="50" y1="50" x2="20" y2="20" stroke="currentColor" strokeWidth="0.2" className="text-primary" />
+            <line x1="50" y1="50" x2="80" y2="20" stroke="currentColor" strokeWidth="0.2" className="text-primary" />
+            <line x1="50" y1="50" x2="20" y2="80" stroke="currentColor" strokeWidth="0.2" className="text-primary" />
+            <line x1="50" y1="50" x2="80" y2="80" stroke="currentColor" strokeWidth="0.2" className="text-primary" />
+          </svg>
+        </div>
+
+        {/* Central Brain */}
+        <div className="z-10 float">
+          <Brain size={120} className="text-primary drop-shadow-[0_0_15px_rgba(var(--primary),0.5)]" />
+        </div>
+
+        {/* Floating Nodes */}
+        <div className="absolute top-10 left-1/2 float-delayed opacity-60">
+          <Network size={40} className="text-purple-400" />
+        </div>
+        <div className="absolute bottom-10 right-1/3 float opacity-60">
+          <Cpu size={30} className="text-blue-400" />
+        </div>
+      </div>
+    );
+  }
+
+  return null;
+}
+
 export default function Services() {
   return (
     <Layout>
@@ -165,14 +257,8 @@ export default function Services() {
                   </Button>
                 </div>
                 <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="glass rounded-3xl p-12 flex items-center justify-center min-h-[300px] border border-white/5 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="text-8xl transform group-hover:scale-110 transition-transform duration-500">
-                      {service.id === "websites" && "🌐"}
-                      {service.id === "automation" && "⚙️"}
-                      {service.id === "audits" && "🔍"}
-                      {service.id === "ai" && "🤖"}
-                    </div>
+                  <div className="glass rounded-3xl h-[400px] w-full flex items-center justify-center border border-white/5 relative overflow-hidden group shadow-2xl">
+                    <ServiceVisual id={service.id} />
                   </div>
                 </div>
               </div>
