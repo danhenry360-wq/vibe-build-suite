@@ -20,14 +20,14 @@ export function SectionHeader({
       {label && (
         <span className="badge-glow mb-4 inline-block">
           <span className="pulse-dot" />
-          {label}
+          <span className="font-mono text-xs uppercase tracking-wider">{label}</span>
         </span>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight">
         {title}
       </h2>
       {description && (
-        <p className="text-lg text-muted-foreground">
+        <p className="text-lg text-muted-foreground font-light">
           {description}
         </p>
       )}

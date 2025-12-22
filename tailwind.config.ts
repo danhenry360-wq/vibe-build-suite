@@ -53,8 +53,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
-        mono: ['Space Mono', 'monospace'],
+        sans: ['Space Grotesk', 'Outfit', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Space Mono', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",
