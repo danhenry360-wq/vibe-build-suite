@@ -483,4 +483,58 @@
   .bg-cyber-dark {
     background: hsl(0 0% 2%);
   }
+
+  /* Logo animations */
+  @keyframes scan {
+    0% {
+      top: 0%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+
+  @keyframes glitch {
+    0%, 100% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+  }
+
+  @keyframes grid-flow {
+    0% {
+      transform: rotateX(60deg) translateY(0);
+    }
+    100% {
+      transform: rotateX(60deg) translateY(24px);
+    }
+  }
+
+  @keyframes drop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    90% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(1000%);
+      opacity: 0;
+    }
+  }
 }
