@@ -1,5 +1,6 @@
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { SystemTerminal } from "./SystemTerminal";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -19,6 +20,9 @@ export function Layout({ children }: LayoutProps) {
         {children}
       </main>
       <Footer />
+      
+      {/* Floating System Terminal */}
+      <SystemTerminal />
     </div>
   );
 }
