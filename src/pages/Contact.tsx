@@ -10,25 +10,29 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Layout } from "@/components/Layout";
-import { SectionHeader } from "@/components/SectionHeader";
-import { Mail, Clock, Globe, ArrowRight } from "lucide-react";
+import { Mail, Clock, Globe, ArrowRight, Terminal, Send, Calendar, ChevronRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Badge } from "@/components/ui/badge";
+import { Reveal } from "@/components/Reveal";
 
 const contactInfo = [
   {
     icon: Mail,
-    label: "Email",
+    label: "COMM_LINK",
     value: "hello@sharkvibe.com",
+    code: "EMAIL"
   },
   {
     icon: Clock,
-    label: "Response Time",
-    value: "Within 24 hours",
+    label: "RESPONSE_TIME",
+    value: "< 24 hours",
+    code: "LATENCY"
   },
   {
     icon: Globe,
-    label: "Location",
+    label: "LOCATION",
     value: "Remote - Worldwide",
+    code: "GLOBAL"
   },
 ];
 
@@ -64,12 +68,11 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Transmission Successful",
+      description: "We'll respond within 24 hours.",
     });
 
     setFormData({
@@ -86,178 +89,232 @@ export default function Contact() {
   return (
     <Layout>
       {/* Header */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <SectionHeader
-            label="Get in Touch"
-            title="Let's Build Something Great"
-            description="Tell us about your project and we'll get back to you within 24 hours."
-          />
+      <section className="section-padding relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className="container-custom relative z-10">
+          <Reveal>
+            <Badge className="badge-glow mb-6">
+              <span className="pulse-dot mr-2" />
+              COMM_INTERFACE
+            </Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black font-mono mb-6">
+              Initialize <span className="text-gradient">Connection</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl font-mono">
+              {">"} Tell us about your project. We'll respond within 24 hours with a strategic assessment.
+            </p>
+          </Reveal>
         </div>
       </section>
 
       {/* Contact Form */}
-      <section className="pb-16 md:pb-24">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-5 gap-12">
+      <section className="pb-16 md:pb-24 relative">
+        <div className="absolute inset-0 bg-grid-dense opacity-10" />
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-5 gap-8">
             {/* Info */}
-            <div className="lg:col-span-2 space-y-8">
-              <div>
-                <h3 className="text-xl font-bold text-foreground mb-6">Contact Information</h3>
-                <div className="space-y-6">
-                  {contactInfo.map((item) => (
-                    <div key={item.label} className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-5 h-5 text-primary" />
+            <div className="lg:col-span-2 space-y-6">
+              <Reveal>
+                <div className="card-cyber p-6">
+                  <div className="flex items-center gap-2 mb-6 pb-3 border-b border-primary/20">
+                    <Terminal size={16} className="text-primary" />
+                    <span className="text-sm font-mono text-primary">CONTACT_INFO</span>
+                  </div>
+                  <div className="space-y-4">
+                    {contactInfo.map((item) => (
+                      <div key={item.label} className="flex items-start gap-4 p-3 bg-primary/5 border border-primary/20 rounded">
+                        <div className="w-10 h-10 border border-primary/30 flex items-center justify-center flex-shrink-0 bg-black">
+                          <item.icon className="w-4 h-4 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-[10px] text-primary/60 uppercase tracking-widest font-mono">{item.label}</p>
+                          <p className="text-foreground font-mono text-sm">{item.value}</p>
+                        </div>
+                        <span className="text-[9px] font-mono text-primary/40">[{item.code}]</span>
                       </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">{item.label}</p>
-                        <p className="text-foreground font-medium">{item.value}</p>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
 
-              <div className="glass rounded-2xl p-6">
-                <h4 className="font-bold text-foreground mb-2">Prefer a quick call?</h4>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Book a free 15-minute discovery call to discuss your project.
-                </p>
-                <Button variant="outline" className="w-full">
-                  Schedule a Call
-                </Button>
-              </div>
+              <Reveal delay={0.1}>
+                <div className="card-cyber p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Calendar size={16} className="text-primary" />
+                    <span className="text-sm font-mono text-primary">QUICK_SYNC</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4 font-mono">
+                    {">"} Book a free 15-minute discovery call to discuss your project scope.
+                  </p>
+                  <Button variant="outline" className="w-full font-mono text-xs border-primary/30 hover:bg-primary/10">
+                    SCHEDULE_CALL
+                    <ChevronRight size={14} className="ml-2" />
+                  </Button>
+                </div>
+              </Reveal>
 
-              <div className="flex gap-4">
-                <a
-                  href="https://x.com/sharkvibe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  𝕏
-                </a>
-                <a
-                  href="https://linkedin.com/company/sharkvibe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors font-bold text-sm"
-                >
-                  in
-                </a>
-              </div>
+              <Reveal delay={0.2}>
+                <div className="flex gap-3">
+                  <a
+                    href="https://x.com/sharkvibe"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 h-12 border border-primary/30 flex items-center justify-center text-primary/60 hover:bg-primary hover:text-primary-foreground transition-all font-mono text-sm"
+                  >
+                    𝕏
+                  </a>
+                  <a
+                    href="https://linkedin.com/company/sharkvibe"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 h-12 border border-primary/30 flex items-center justify-center text-primary/60 hover:bg-primary hover:text-primary-foreground transition-all font-mono text-sm font-bold"
+                  >
+                    in
+                  </a>
+                </div>
+              </Reveal>
             </div>
 
             {/* Form */}
             <div className="lg:col-span-3">
-              <form onSubmit={handleSubmit} className="glass rounded-2xl p-8">
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Name *
-                    </label>
-                    <Input
-                      required
-                      placeholder="John Doe"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="bg-background border-border"
-                    />
+              <Reveal delay={0.1}>
+                <div className="card-cyber overflow-hidden">
+                  {/* Terminal header */}
+                  <div className="flex items-center gap-2 p-4 border-b border-primary/20 bg-primary/5">
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 rounded-full bg-red-500/60" />
+                      <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
+                      <div className="w-2 h-2 rounded-full bg-green-500/60" />
+                    </div>
+                    <span className="text-[10px] font-mono text-primary/60 ml-2">project_inquiry.form</span>
+                    <div className="ml-auto flex items-center gap-2">
+                      <Send size={12} className="text-primary/60" />
+                      <span className="text-[10px] font-mono text-primary/60">READY</span>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email *
-                    </label>
-                    <Input
-                      required
-                      type="email"
-                      placeholder="john@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="bg-background border-border"
-                    />
-                  </div>
-                </div>
+                  
+                  <form onSubmit={handleSubmit} className="p-6 space-y-5">
+                    <div className="grid md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-[10px] font-mono text-primary/60 uppercase tracking-widest mb-2">
+                          NAME *
+                        </label>
+                        <Input
+                          required
+                          placeholder="John Doe"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="bg-black border-primary/30 font-mono h-11"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-mono text-primary/60 uppercase tracking-widest mb-2">
+                          EMAIL *
+                        </label>
+                        <Input
+                          required
+                          type="email"
+                          placeholder="john@example.com"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="bg-black border-primary/30 font-mono h-11"
+                        />
+                      </div>
+                    </div>
 
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Company / Website
-                  </label>
-                  <Input
-                    placeholder="Your company or existing website"
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="bg-background border-border"
-                  />
-                </div>
+                    <div>
+                      <label className="block text-[10px] font-mono text-primary/60 uppercase tracking-widest mb-2">
+                        COMPANY / WEBSITE
+                      </label>
+                      <Input
+                        placeholder="Your company or existing website"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        className="bg-black border-primary/30 font-mono h-11"
+                      />
+                    </div>
 
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Project Type
-                    </label>
-                    <Select
-                      value={formData.projectType}
-                      onValueChange={(value) => setFormData({ ...formData, projectType: value })}
+                    <div className="grid md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-[10px] font-mono text-primary/60 uppercase tracking-widest mb-2">
+                          PROJECT_TYPE
+                        </label>
+                        <Select
+                          value={formData.projectType}
+                          onValueChange={(value) => setFormData({ ...formData, projectType: value })}
+                        >
+                          <SelectTrigger className="bg-black border-primary/30 font-mono h-11">
+                            <SelectValue placeholder="Select type" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-black border-primary/30">
+                            {projectTypes.map((type) => (
+                              <SelectItem key={type} value={type} className="font-mono text-sm">
+                                {type}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-mono text-primary/60 uppercase tracking-widest mb-2">
+                          BUDGET_RANGE
+                        </label>
+                        <Select
+                          value={formData.budget}
+                          onValueChange={(value) => setFormData({ ...formData, budget: value })}
+                        >
+                          <SelectTrigger className="bg-black border-primary/30 font-mono h-11">
+                            <SelectValue placeholder="Select budget" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-black border-primary/30">
+                            {budgetRanges.map((range) => (
+                              <SelectItem key={range} value={range} className="font-mono text-sm">
+                                {range}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-[10px] font-mono text-primary/60 uppercase tracking-widest mb-2">
+                        PROJECT_DESCRIPTION *
+                      </label>
+                      <Textarea
+                        required
+                        placeholder="> Describe your project, goals, and timeline..."
+                        rows={5}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="bg-black border-primary/30 font-mono resize-none"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-primary text-primary-foreground font-mono font-bold h-12 glow-primary-sm"
                     >
-                      <SelectTrigger className="bg-background border-border">
-                        <SelectValue placeholder="Select type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {projectTypes.map((type) => (
-                          <SelectItem key={type} value={type}>
-                            {type}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Budget Range
-                    </label>
-                    <Select
-                      value={formData.budget}
-                      onValueChange={(value) => setFormData({ ...formData, budget: value })}
-                    >
-                      <SelectTrigger className="bg-background border-border">
-                        <SelectValue placeholder="Select budget" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {budgetRanges.map((range) => (
-                          <SelectItem key={range} value={range}>
-                            {range}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                      {isSubmitting ? (
+                        <>
+                          <span className="animate-pulse">TRANSMITTING</span>
+                          <span className="ml-2 animate-spin">◌</span>
+                        </>
+                      ) : (
+                        <>
+                          SUBMIT_INQUIRY
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                    
+                    <p className="text-center text-[10px] text-muted-foreground font-mono">
+                      {">"} Expected response time: &lt; 24 hours
+                    </p>
+                  </form>
                 </div>
-
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Project Description *
-                  </label>
-                  <Textarea
-                    required
-                    placeholder="Tell us about your project, goals, and timeline..."
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-background border-border resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </form>
+              </Reveal>
             </div>
           </div>
         </div>
